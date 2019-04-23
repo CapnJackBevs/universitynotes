@@ -1,0 +1,7 @@
+rm main.aux main.idx main.log main.toc main.out main.bbl main.blg
+pdflatex -interaction=nonstopmode main.tex
+bibtex main
+pdflatex -interaction=nonstopmode main.tex
+pdflatex -interaction=nonstopmode main.tex
+rm main.aux main.idx main.log main.toc main.out main.bbl main.blg
+

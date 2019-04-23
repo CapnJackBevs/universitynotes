@@ -1,0 +1,131 @@
+%&pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+% Set page geometry.
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=5mm,
+ }
+
+% Packages for maths symbols.
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Various definitions.
+%\definecolor{bblue}{rgb}{0.36, 0.54, 0.66}
+\def \Z {\mathbb{Z}}
+\def \N {\mathbb{N}}
+\def \Q {\mathbb{Q}}
+\def \R {\mathbb{R}}
+\def \C {\mathbb{C}}
+\def \E {\mathbb{E}}
+\def \P {\mathbb{P}}
+\def \> {\Rightarrow}
+%\def \bb {\color{bblue}}
+\def \thm {\par \begingroup \narrower \noindent}
+\def \thmend {\par \endgroup}
+
+% Document Specifics.
+\author{William A. Bevington}
+\title{Analysis Hand in Four}
+\date{}
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Question One - Workshop 7, Q7}
+Suppose that $d(x,y)$ and $\rho(x,y)$ are metrics on some set $X$ with $x,y\in X$. First I will show that $\rho(x,y)$ and $d(x,y)$ are equivalent iff $B_\rho(x_0;r) = B_d(x_0;r)$, where $B_\rho(x_0;r)$ is a ball with centre $x_0$ and radius $r$ in the $\rho(x,y)$ metric and $B_d(x_0;r)$ is the same in the $d(x,y)$ metric, then we can conclude that $d(x,y)$ and $\rho(x,y)$ are equivalent iff for any open subset $H\subset_\text{open} X$ in $(X,d)$ we have also $H\subset_\text{open} X$ in $(X,\rho)$. 
+
+Now, we have the two open balls in $(X,d)$ and $(X,\rho)$ given by
+	\begin{equation}\label{balls}
+		B_d(x_0;r)    := \{y\in X : d(x,y)<r \}, \quad \quad
+		B_\rho(x_0;r) := \{y\in X : \rho(x,y)<r \}.
+	\end{equation}
+If $d(x,y)$ and $\rho(x,y)$ are equivalent then by definition we have that $\forall x,x_0\in X: \forall\varepsilon>0: \exists\delta>0$ such that  
+	\begin{align*}
+		d(x,x_0)<\delta &\Rightarrow \rho(x,x_0)<\varepsilon \\
+		&\text{and} \\
+		\rho(x,x_0)<\delta &\Rightarrow d(x,x_0)<\varepsilon
+	\end{align*}		
+We can define the sets on which this holds and say that $d(x,y)$ and $\rho(x,y)$ are equivalent if
+	\begin{align*}
+		x\in\{y\in X: d(y,x_0)<\delta\}&\Rightarrow x\in\{y\in X: \rho(y,x_0)<\varepsilon\} \\
+		&\text{and} \\
+		x\in\{y\in X: \rho(y,x_0)<\delta\}&\Rightarrow x\in\{y\in X: d(y,x_0)<\varepsilon\},
+	\end{align*}
+choosing $r=\min\{\delta,\varepsilon\}$ (which exists because we've assumed $d(x,y)$ and $\rho(x,y)$ are equivalent), we can make this an `if and only if' statement, and using (\ref{balls}) we get that if $d(x,y)$ and $\rho(x,y)$ are equivalent then $B_d(x_0;r) = B_\rho(x_0;r)$ for any $r$. This does in fact work for any $r$ because we have an arbitrary choice for $\varepsilon$ and an arbitrary choice for $d(x,y)$ and $\rho(x,y)$, which determine $\delta$, so we can make $\min\{\delta,\varepsilon\}$ as large or small as we like.
+
+Now we have to show that $B_d(x_0;r)=B_\rho(x_0;r)$ for arbitrary $x_0\in X$ and $r>0$ implies that $d(x,y)$ and $\rho(x,y)$ are equivalent. This will essentailly be the same argument in reverse. If $B_d(x_0;r)=B_\rho(x_0,r)$ for an arbitrary choice of $x_0$ and $r$, then $x\in B_d(x_0;r) \Rightarrow x\in B_\rho(x_0;r)$, and so $d(x,x_0)<r \Rightarrow \rho(x,x_0)<r$, so we let $\varepsilon=\delta=r$ and we get that
+	\[
+		\forall x,y\in X: \forall\varepsilon>0:\exists\delta>0:
+		d(x,x_0)<\delta \Rightarrow \rho(x,x_0)<\varepsilon
+		\text{ and }
+		\rho(x,x_0)<\delta \Rightarrow d(x,x_0)<\varepsilon,
+	\]
+and so $d(x,y)$ and $\rho(x,y)$ are equivalent iff $B_d(x_0;r)=B_\rho(x_0;r)$.
+
+Every open subset of a metric space $X$ can be realised as a union of open balls. Thus if $H\subset X$ is an open subset of $(X,d)$ then $H=\cup B_d(x_0;r) = \cup B_\rho(x_0;r) \subset (X,\rho)$, and visa-versa. So $d(x,y)$ and $\rho(x,y)$ are equivalent on $X$ if and only if every subset $H$ which is open with respect to $\rho$ is also open with respect to $d(x,y)$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Question Two - Workshop 7, Q9}
+We are asked to show that
+	\[
+		d_1(f,g) := \int_0^1 |f-g|
+	\]
+does not give rise to a complete metric space on $C([0,1])$. We will construct a counter-example which gives a Cauchy series $f_n\to f$ but where $f\notin C([0,1])$ and so $f_n$ is not convergent in $C([0,1])$. Let the sequence $(f_n)_{n\in\N}$ be defined
+	\begin{equation}\label{f}
+		f_n = \frac{1}{1+(x-\frac12)^{2n}}
+	\end{equation}
+where I've shifted $\frac{1}{1+x^{2n}}$ to the left by a half. Now, I will prove that each $f_n$ is continuous on $[0,1]$ and hence $\forall n\in\N: f_n\in C([0,1])$, but that $\lim_{n\to\infty}f_n \notin C([0,1])$.
+
+First of all, each $f_n$ is continuous. To see this note that each of the functions
+	\begin{align*}
+		g_1(x) &= \frac{1}{1+x}\\
+		g_2(x) &= x^{2n}\\
+		g_3(x) &= x-\frac12
+	\end{align*}
+are continuous on the domain $[0,1]$, and that $f_n(x) = g_1\circ g_2\circ g_3 (x)$, and that the composition of continuous functions is continuous. Thus each $f_n$ is continuous.
+
+We now show that $(f_n)$ is Cauchy. Let $z=x-1/2$ so that $z\in\left[-\frac12,\frac12\right]$ and
+	\begin{align*}
+		|f_n(z)-f_m(z)| 
+		&= \left|\frac{1}{1+z^{2n}} - \frac{1}{1+z^{2m}}\right| \\
+		&= \left|\frac{1+z^{2m} - 1 - z^{2n}}{(1+z^{2n})(1+z^{2m})}\right| \\
+		&= \left|\frac{z^{2m} - z^{2n}}{ (1+z^{2n})(1+z^{2m})}\right|. \\
+	\end{align*} 
+Since $-\frac12 \leq z \leq \frac12$ we have $0\leq z^2\leq \frac14 \Rightarrow 1 \leq 1+z^{2n}\leq 1+\frac{1}{2^n}$ and so 
+	\[
+		|f_n(z)-f_m(z)|\leq
+		\left| \frac{\frac{1}{4^n}-\frac{1}{4^m}}{(1)(1)}\right|=
+		\left| \frac{1}{4^n} - \frac{1}{4^m} \right|.
+	\]
+Without loss of generality, assume $m>n$ and so $\frac{1}{4^m}<\frac{2}{4^n}$, thus $\left|\frac{1}{4^n} - \frac{1}{4^m}\right| \leq \frac{1}{4^n} =: \varepsilon$ so $(f_n)$ is Cauchy.
+
+Now we show that $f(x) := \lim_{n\to\infty}f_n(x)$ isn't continuous on $[0,1]$, as it has a discontinuity at $x=\frac12$. Substituting $x=\frac12$ into (\ref{f}) we get that $\forall n:f_n(1/2) = 1$ and so clearly $f(1/2)=1$. However, if $x\in(\frac12,1]$ then $x-\frac12 >0 \Rightarrow 1+(x-\frac12)^{2n}>1$ and so $f_n(x) = \frac{1}{1+(x-\frac12)^{2n}} \to 0$ as $n\to\infty$ by the $p$-test. So $\lim_{x\to 1/2^+} f(x) =0$ and $f(x)=\frac12$, thus $f$ is discontinuous at $x=\frac12$.
+
+Thus we have shown that there exists a Cauchy sequence on the metric space $\Big(C([0,1]),d_1\Big)$ which is not convergent; so the space isn't complete.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Question Three - Workshop 8}
+I will prove that if $(X,d)$ is a complete metric space then any closed subset of $A\subset X$ is compact, thus we will get for free that $[0,1]\times[0,1]\subset\R^2$ is compact, since $\R^2$ is complete.
+
+Suppose $A\subset X$ is a closed subset of $(X,d)$ with the restriction of $d$ to $A$, dentoed $d|_A$, forming a metric (sub)space $(A,d|_A)$, and that $(A,d|_A),(X,d)$ are complete spaces. We say that $Q\subset X$ is compact if given any open cover $\mathcal{U}$ of $Q$ we can find a finite sub-cover $\{\mathcal{U}_\alpha\}\subset\mathcal{U}$ of $Q$.
+
+Thus, for the sake of contradiction, assume that $\mathcal{U}$ is an open cover of $A$ in which there exists a subcover $\{U_\alpha\}$ which is infinite. We partition $\mathcal{U}$ into ${\color{red}h}$ subsets $Q_1 = \mathcal{U}_1\sqcup \dots \sqcup \mathcal{U}_{\color{red}h}$, so that $\{\mathcal{U}_1, \dots,\mathcal{U}_{\color{red}h}\}$ is a subcover of $\mathcal{U}$, by our assumption it must be the case that at least one of the $\mathcal{U}_i$ has no finite subcover.
+
+Without loss of generality say that $\mathcal{U}_1$ has no finite subcover, and let $Q_1:=\mathcal{U}_1$. We can now partition this into a further four subsets which cover it and then we repeat the steps from the last paragraph, giving the sequence $Q_{n+1}\subset Q_n \subset\dots\subset Q_1$, where we choose each $Q_i$ to be one with  no finite subcover by our assumption.
+
+Now we choose $x_n\in Q_n$ and $x_m\in Q_m$ with $m>n$ so that $Q_m\subset Q_n$, note that the maximum distance between these two points is the maximum distance between any two points in $Q_n$, given by $k_n=\sup\{d(x_i,x_j)\ :\ x_i,x_j\in Q_n\}$. We require now that $(k_n)_{n\in\N}$ is a Cauchy sequence (more on this at the end), which by the completeness of $X$ gives that it is a convergent sequence, so $x_n,x_m\to x$ as $m,n\to\infty$ for some $x\in\bigcap_{i=0}^\infty Q_i$. 
+
+So we have that $x\in\bigcap_{i\in I} Q_i$ for some finite indexing set $I$ since $Q_m\subset Q_n$ for $m>n$, so we may just choose a finite $I$ as $\bigcap_{i\in I}\subset Q_1$, for instance, and one is finite. Let $B(x,r)$ be an open ball so that $B(x,r)\subseteq \bigcap_{i\in I}Q_i$, we can choose a suitably large (yet still finite) $N$ for which, given $n\geq N$ we have $\sup\{d(x_i,x)\}\leq r$ since the sequence $(x_i)_{n\in\N}$ is convergent to a finite limit. Then $Q_n\subseteq B(x,r)$, and so our ball is a finite subcover of $Q_n$, which is in contradiction with our statement that each $Q_i$ has no finite subcover. 
+
+Now, we required earlier that $(k_n)_{n\in\N}$ be a Cauchy sequence, which may not be true for any choice of sub-division of each $Q_i$. However we may choose a subdivision each time which suitably decreaces the `size' of $Q_{i+1}$ as to make $(k_n)$ Cauchy since we have not fixed the number of subdivisions {\color{red}$h$}, and so can choose a suitably large ${\color{red}h}$ as to suitably decrease the size of each subdivision, forcing $(k_n)_{n\in\N}$ to be Cauchy. Thus, since $[0,1]\times[0,1]\subset\R^2$ is complete, it is also compact.
+
+
+\end{document}

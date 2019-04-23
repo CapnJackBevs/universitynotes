@@ -1,0 +1,179 @@
+%&pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+% Set page geometry.
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=10mm,
+ }
+
+% Packages for maths symbols.
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Various definitions.
+%\definecolor{bblue}{rgb}{0.36, 0.54, 0.66}
+\def \Z {\mathbb{Z}}
+\def \N {\mathbb{N}}
+\def \Q {\mathbb{Q}}
+\def \R {\mathbb{R}}
+\def \C {\mathbb{C}}
+\def \E {\mathbb{E}}
+\def \P {\mathbb{P}}
+\def \> {\Rightarrow}
+%\def \bb {\color{bblue}}
+\def \thm {\vspace{1ex} \par \begingroup \narrower \noindent}
+\def \thmend {\par \endgroup \vspace{1ex}}
+
+% Document Specifics.
+\author{William A. Bevington}
+\title{Analysis Hand In Two}
+\date{}
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Question One - Worksheet 3, Q6}
+% Show that f(x) = sin(x) is uniformly continuous on R
+	\begin{equation}\label{eqn:q1}
+		f(x) = \sin(x),\quad x\in\R
+	\end{equation}
+We wish to show that $\forall\varepsilon>0: \exists\delta>0: \forall x,y\in\R:$ we have that $|x-y|<\delta \Rightarrow |\sin(x)-\sin(y)|<\varepsilon$, note that in the case of uniform continuity  $\varepsilon$ depends only on $\delta$. Since $\sin(x)$ is differentiable on $I=\R$ with a bounded derivative, $\left|\frac{d}{dx}\sin(x)\right| = |\cos(x)| \leq 1$ for any $x\in\R$, I will instead prove that for any differentiable function $g:\R\to\R$ with a bounded derivative is uniformly continuous, the result will then follow.
+
+Since $g:\R\to\R$ has a bounded derivative by assumption we have that the limit
+	\begin{equation}\label{eqn:q1}
+		g'(y) := \lim_{x\to y} \frac{g(x)-g(y)}{x-y}
+	\end{equation}
+exists and is bounded by some $M\in\R$ so that $\forall x\in\R: |g'(x)|<M$. In other words; if $|x-y|<\delta$ then $\left|\frac{g(x)-g(y)}{x-y}-g'(y)\right|<\epsilon$. Let $\varepsilon = \frac{M\delta}{1+\delta}$, so we have that $\delta = \frac{\varepsilon}{M-\varepsilon}$ and since $|x-y|<\delta$ 
+	\begin{align*}
+		\epsilon
+		&>\left| \frac{g(x)-g(y)}{x-y}-g'(y)  \right|
+		\geq \left| \frac{g(x)-g(y)}{x-y} - M \right|
+			&\text{since $\forall x: |g'(x)|<M$}\\
+		&\geq \left|\left|\frac{g(x)-g(y)}{x-y}\right|-M\right|
+			&\text{by the reverse triangle inequality}\\
+		&\Rightarrow M-\epsilon < \left|\frac{g(x)-g(y)}{x-y}\right|<M+\epsilon
+			&\text{using $|a-b|<c \Rightarrow -c<a-b<c$}
+	\end{align*}
+and so we have that $|g(x)-g(y)| < |x-y|(M-\epsilon)< \delta(M-\epsilon) = \frac{\varepsilon}{M-\varepsilon}(M-\varepsilon) = \varepsilon$, that is; $g$ is uniformly continuous. Thus if $g:\R\to\R$ has a bounded derivative on $\R$ then $g$ is uniformly continuous, hence $f(x)=\sin(x)$ is uniformly continuous on $\R$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Question Two - Worksheet 3, Q9}
+% Find an example f:(0,1)->R which is cts but not uniformly cts. Where exactly did we use that [a,b] was closed and bounded in the theorem?
+
+We will aim to find two sequences $(s_n)_{n\in\N}$ and $(t_n)_{n\in\N}$ for which $|s_n-t_n|\to0$ but that $\lim_{n\to\infty}|f(s_n)-f(t_n)| \neq 0$ for some continuous function $f$, then by question seven of the workshop $f$ will not be uniformly continuous.
+
+Let $f:(0,1)\to\R:x\mapsto1/x$, then $f$ is continuous on $(0,1)$ since if $|x-y|<\delta$ and $\varepsilon = \frac{\delta}{|xy|}$ then
+	\[
+		|f(x)-f(y)| = \left|\frac1x - \frac1y\right| 
+		= \left|\frac{y-x}{xy}\right| 
+		< \frac{\delta}{|xy|} = \varepsilon.
+	\]
+Now we must show that $f$ isn't uniformly continuous. Let $(s_n)_{n\in\N}$ be a sequence defined by $s_n = 1/2n$ so that $s_n\to 0$ and $\forall n\in\N: s_n\in(0,1/2]\subset(0,1)$, note that $f(s_n) = f(1/2n) = 2n$. Now, let $(t_n)_{n\in\N}$ be a sequence defined by $t_n = 1/3n$ so that $t_n\to0$ as $n\to\infty$, and we have $\forall n\in\N: t_n\in(0,1/3]\subset(0,1)$, and $f(t_n) = 3n$. Then $|f(t_n)-f(s_n)| = |3n-2n|=|n|\to\infty\neq0$, thus $f(x)=1/x$ is not uniformly continuous on $(0,1)$.
+
+The theorem in the workshop stated that if $f:[a,b]\to\R$ is continuous then it's uniformly continuous. This isn't true for open intervals $(a,b)$ since $f$ can asymptotically approach $\pm\infty$ at either of the end points, however if $f$ is defined on $[a,b]$ then in order for $f$ to be defined, $f(a)$ and $f(b)$ must be finite.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Question Three - Worksheet 4, Q5}
+% Prove that
+%  (i)   S(x) > 0 for 0 < x <= sqrt(6)
+%  (ii)  C(x) > 0 for 0 < x <= sqrt(2)
+%  (iii) If 0 <= x <= sqrt(56) and 1-x^2/2! + x^4/4! < 0 then C(x) < 0.
+%		Show then that C(8/5)<0
+We have that
+	\begin{equation}\label{eqn:q3}
+		S(x) := \sum_{k=0}^\infty \frac{(-1)^kx^{2k+1}}{(2k+1)!},\quad
+		C(x) := \sum_{k=0}^\infty \frac{(-1)^kx^{2k}}{(2k)!}
+	\end{equation}
+and we wish to show that for $x\in(0,\sqrt{6}]: S(x)>0$ and that for $x\in(0,\sqrt{2}]: C(x)>0$. For $S(x)$, consider equation (\ref{eqn:q3}):
+	\begin{align*}
+		S(x) &= \sum_{k=0}^\infty \frac{(-1)^kx^{2k+1}}{(2k+1)!} \\
+		&= \sum_{k=0}^\infty
+			\left(
+			\frac{(-1)^{2k}x^{4k+1}}{(4k+1)!} -
+			\frac{(-1)^{2k}x^{4k+3}}{(4k+3)!}
+			\right) \\
+		&= \sum_{k=0}^\infty
+			\frac{x^{4k+1}}{(4k+1)!}
+			\left(
+			1-\frac{x^2}{(4k+2)(4k+3)}
+			\right)
+	\end{align*}
+so if $x\in(0,\sqrt{6}]$ then $x^2\in(0,6]$ and $x^{4k+1}\in(0,36^k\sqrt{6}]$. Notice that $1-\frac{x^2}{(4k+2)(4k+3)}>0$ precisely when $1>\frac{x^2}{(4k+2)(4k+3)}\in \left(0,\frac{6}{(4k+2)(4k+3)}\right]$, and so certainly $1-\frac{x^2}{(4k+2)(4k+3)}>0$. Thus each term $\frac{x^{4k+1}}{(4k+1)!} \left(1-\frac{x^2}{(4k+2)(4k+3)}\right)$ is positive and thus the sum of terms $S(x)>0$ is positive for $x\in(0,\sqrt{6}]$.
+
+Similarly we want to show that $C(x)>0$ for $x\in(0,\sqrt{2}]$. Splitting the sum as we did above we get
+	\begin{align*}
+		C(x) &= \sum_{k=0}^\infty \frac{(-1)^kx^{2k}}{(2k)!} \\
+		&= \sum_{k=0}^\infty 
+			\left(
+			\frac{(-1)^{2k}   x^{4k  }}{(4k)!} -
+			\frac{(-1)^{2k+2} x^{4k+2}}{(4k+2)!}
+			\right)\\
+		&= \sum_{k=0}^\infty
+			\frac{x^{4k}}{(4k)!}
+			\left(
+			1 - \frac{x^2}{(4k+1)(4k+2)}
+			\right),
+	\end{align*}
+and clearly $\frac{x^{4k}}{(4k)!}$ is positive. Now, $x\in(0,\sqrt{2}] \Rightarrow x^2\in(0,2]$, and since $k\geq0$ we have that $(4k+1)(4k+2)\geq(0+1)(0+2)=2$ and so $1 - \frac{x^2}{(4k+1)(4k+2)}>0$, and since each term is positive the sum of all the terms will be positive too, thus $C(x)>0$ for $x\in(0,\sqrt{2}]$.
+
+Finally we wish to prove that if $x\in[0,\sqrt{56}]$ and $1-x^2/2! + x^4/4! < 0$ then $C(x) < 0$. Rewriting this as a quadratic in $a=x^2$ we have that $a^2 - 12a +24 <0$, and we get critical values $a=6\pm2\sqrt{3}$ and so the critical values for the quartic in $x$ are $\left\{\sqrt{6+2\sqrt{3}},\sqrt{6-2\sqrt{3}},-\sqrt{6+2\sqrt{3}},-\sqrt{6-2\sqrt{3}}\right\}$, which gives (by looking at the graph) that $x^4-12x^2+24<0$ iff $x\in(-\sqrt{6+2\sqrt{3}},-\sqrt{6-2\sqrt{3}})\cup(\sqrt{6-2\sqrt{3}},\sqrt{6+2\sqrt{3}})$, but by assumption we have that $x\in(0,\sqrt{56}]$ so certainly $x>0$ and $\sqrt{6+\sqrt{3}}<\sqrt{56}$ thus $(\sqrt{6-2\sqrt{3}},\sqrt{6+2\sqrt{3}})\subset(0,\sqrt{56})$ and
+	\[
+		x\in\left(0,\sqrt{56}\right]
+		\text{  and  }
+		1 - x^2/2! + x^4/4! < 0 
+		\quad\Rightarrow\quad
+		x\in\left(\sqrt{6-2\sqrt{3}},\sqrt{6+2\sqrt{3}}\right),
+	\]
+and so $x^2\in\left(6-2\sqrt{3},6+2\sqrt{3}\right)$. Note that 
+	\begin{equation}\label{eqn:cos}
+		C(x)=
+		\sum_{k=0}^\infty 
+			\left(
+			\frac{x^{4k}}{(4k)!} - \frac{x^{4k+2}}{(4k+2)!}
+			\right)
+		=
+		\sum_{k=0}^\infty   \frac{x^{4k}  }{(4k)!} 
+		- \sum_{k=0}^\infty \frac{x^{4k+2}}{(4k+2)!}
+	\end{equation}
+where $x\in\left(\sqrt{6-2\sqrt{3}},\sqrt{6+2\sqrt{3}}\right)$, and $1-x^2/2!+x^4/4!=0$ so the first two terms of the first sum $1+x^4/4! = x^2/2!$; the first term of the second sum, thus
+	\[
+		C(x) = 
+		\sum_{k=2}^\infty   \frac{x^{4k}  }{(4k)!} 
+		- \sum_{k=1}^\infty \frac{x^{4k+2}}{(4k+2)!}
+		=
+		\sum_{k=2}^\infty \left( \frac{x^{4k}}{(4k)!} 
+		- \frac{x^{4k-2}}{(4k-2)!} \right),
+	\] 
+which is clearly negative, as each term is negative.
+
+Now, we have that for $x\in\left(\sqrt{6-2\sqrt{3}},\sqrt{6+2\sqrt{3}}\right)$ then $C(x)<0$. Since $1.59\approx\sqrt{6-2\sqrt{3}} < 8/5=1.6 < \sqrt{6+2\sqrt{3}}\approx3.08$ by direct calculation, we have that $C(8/5)<0$ by the above.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Question Four - Worksheet 4, Q6}
+% Deduce that there is a unique number w/2 such that sqrt(2)< w/2 < 8/5 such that C(w/2)=0, and that S(w/2)=1.
+%Intermediate Value theorem for $cos$. Mean Values thm for $sin = -d/dx(cos(x))$
+
+From the above question we have that $C(8/5)<0$, and $\frac{d}{dx}C(x) = -S(x)$, so $C(x)$ is a continuous funtion on some interval $I$ (in this case $I=\R$, which we proved in the workshop), thus we can use the intermediate value theorem:
+	\thm\textbf{Intermediate Value Theorem:}\\
+	If $f$ is continuous on some interval $[a,b]$ and takes values $f(a)=y_a$ and $f(b)=y_b$, then for any $y$ between $y_a$ and $y_b$, $\exists c\in[a,b]$ such that $y=f(c)$.
+	\thmend
+\noindent In our case, $[a,b]$ can be any closed subset of $I=\R$, but we'll choose $[\sqrt{2},8/5]$. We have that $C(8/5)<0$ and that $C(\sqrt{2})>0$ from the above, and thus there must be some $\omega/2\in[\sqrt{2},8/5]$ such that $C(\omega/2) = 0$ since $0$ is between $C(8/5)<0<C(\sqrt{2})$.
+
+Now we wish to show that $S(\omega/2)=1$, note that $\frac{d}{dx}S(x) = C(x)$, and that $\forall x: S(x)\leq1$, and so $1$ is a global maximum for $S(x)$. At any global maximum strictly inside some interval (ie, not one of the endpoints) has a derivative of zero, thus if $S(c)=1$ for some $c$ then $\frac{dS}{dx}|_{x=c} = C(c) = 0$. There is a unique point $\omega/2$ in $(\sqrt{2},8/5)$ (note the lack of end-points) in which $C(\omega/2)=0$ and given that there is a unique point $c\in(\sqrt{2},8/5)$ in which $S(c)=1$ so that $C(c)=0$, it must be that $c=\omega/2$, thus there is a unique $\omega/2\in(\sqrt{2},8/5)$ in which $C(\omega/2)=0$ and $S(\omega/2)=1$.
+
+
+
+
+\end{document}

@@ -1,0 +1,44 @@
+\usepackage{makeidx}
+\usepackage{natbib}
+\makeindex  % \index{key}
+\usepackage[utf8]{inputenc}
+\usepackage{url,hyperref}
+\hypersetup{
+     colorlinks = true,
+     urlcolor = magenta
+     }
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,tikz,pgfplots}
+\pgfplotsset{compat=1.5.1}
+
+% Theorem Styles %
+  \newtheorem{theorem}{Theorem}
+  \newtheorem{lemma}[theorem]{Lemma}
+  \newtheorem{corollary}[theorem]{Corollary}
+  \newtheorem{proposition}[theorem]{Proposition}
+  \theoremstyle{definition}
+  \newtheorem{definition}[theorem]{Definition}
+  \newtheorem{example}[theorem]{Example}
+% <end> %
+
+% Definitions %
+  \def \R {\mathbb{R}}
+  \def \E {\mathbb{E}}
+  \def \C {\mathbb{C}}
+  \def \orb {{{\mathrm{Orb}}}}
+  \def \stab {\mathrm{Stab}}
+  \def \mail {\href{mailto:william.bevington@zoho.eu}{william.bevington@zoho.eu}}
+% <end> %
+
+\author{William Bevington - \mail}
+\date{2019 - 2020}
+
+% Logo in corner
+%\usepackage{eso-pic}
+%\AddToShipoutPictureFG{%
+%  \AtPageUpperLeft{%
+%    \raisebox{-\height}{%
+%    \hspace{2ex}
+%    \includegraphics[width=1.5in]{Pictures/eduni.png}}}%
+%}
