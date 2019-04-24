@@ -1,0 +1,120 @@
+\vspace{-6ex}
+\noindent\rule{\linewidth}{0.5pt}\vspace{-2ex}
+\begin{multicols}{2}
+\section*{Chapter One - Holomorphicity}
+
+\begin{theorem}[Triangle Inequality]
+    \begin{align*}
+    |z+w| &\leq |z| + |w| \\
+    ||z|-|w|| &\leq |z-w|
+    \end{align*}
+\end{theorem}
+
+\begin{definition}
+The \textbf{argument} of $z\in\C$ is $\arg(z):=\{\theta\,:\,z=|z|e^{i\theta}\}$, the \textbf{principle argument} is $\Arg(z)\in\arg(z)\cap(-\pi,\pi]$ and is \textit{unique}. 
+\end{definition}
+
+\begin{theorem}[1.1.19]
+Let $z,w\in\C$ be non-zero. Then $\arg(zw)=\arg(z)+\arg(w)$ and $\Arg(zw)=\Arg(z)+\Arg(w)$.
+\end{theorem}
+
+\begin{definition}
+The \textbf{open (resp. closed) $\varepsilon$-disk} centred at $z_0$ is $D_\varepsilon(z_0):=\{z\in\C\,:\,|z-z_0|<\varepsilon\}$ (resp. $\overline{D_\varepsilon(z_0)}:=\{z\in\C\,:\,|z-z_0|\leq\varepsilon\}$). The \textbf{puntured disk} is $D'_\varepsilon(z_0):=D_\varepsilon(z_0)\setminus\{z_0\}$.
+\end{definition}
+
+\begin{definition}
+A subset $D\subseteq\C$ is \textbf{open} if $\forall z\in D:\exists\varepsilon>0:D_\varepsilon(z)\subseteq D$ (or it's a union of open disks) and is \textbf{closed} if $\C\setminus D$ is open. If $z\in D$ is open we say $D$ is a \textbf{neighbourhood} of $z$.
+\end{definition}
+
+\begin{definition}
+Let $S\subseteq\C$ then $z_0\in\C$ is a \textbf{limit-point} of $S$ if $\forall\varepsilon>0: D'_\varepsilon(z_0)\cap S\neq\emptyset$. If $L_S$ is the set of limit points of $S$ then $\overline{S}:=S\cup L_S$ is the \textbf{closure} of $S$.
+\end{definition}
+
+\begin{theorem}[1.2.9]
+A complex sequence $z_n$ \textbf{converges} iff $\re(z_n)$ and $\im(z_n)$ converge.
+\end{theorem}
+
+\begin{theorem}
+The complex plane $\C$ is \textbf{complete}, namely $z_n$ is convergent $\Leftrightarrow z_n$ is \textbf{Cauchy}.
+\end{theorem}
+
+\begin{theorem}[Bolzano-Weierstrass]
+If $z_n$ is a bounded sequence then it has a convergent subsequence.
+\end{theorem}
+
+\begin{theorem}[1.3.3]
+Let $f:S\subseteq\C\to\C$ and $z_0=x_0+iy_0\in\overline{S}$ and $z=x+iy,a_0\in\C$, then $\exists u(x,y),v(x,y)$ such that $f(z) = u(x,y) + iv(x,y)$. Then $a_0=\lim_{z\to z_0}f(z)$ iff $\re(z) = \lim_{(x,y)\to (x_0,y_0)} u(x,y)$ and $\im(z)=\lim_{(x,y)\to(x_0,y_0)} v(x,y)$.
+\end{theorem}
+
+\begin{definition}
+A function $f:\C\to\C$ is \textbf{continuous} if $f^{-1}(U)$ is open for all $U\subseteq\C$, equally if $\forall\varepsilon>0:\exists\delta>0: |f(z)-f(z_0)|<\varepsilon$ whenever $|z-z_0|<\delta$ then $f$ is continuous at $z_0$.
+\end{definition}
+
+\begin{theorem}
+If $S\subseteq\C$ is \textbf{compact} (i.e. closed and bounded) then $f(S)$ is compact.
+\end{theorem}
+
+\begin{definition}
+A function $f:\C\to\C$ is \textbf{differentiable} at $z_0$ if $\lim_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0} = 0$. Furthermore \textbf{differentiability gives continuity}.
+\end{definition}
+
+\begin{theorem}
+Let $z_0=x_0+iy_0\in\C$ and $U\subseteq \C$ be a neighbourhood of $z_0$ with $f:U\to\C, f=u+iv$ differentiable at $z_0$. The \textbf{Cauchy-Riemann equations} are
+    \[
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
+    \quad\text{and}\quad
+    \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}.
+    \]
+\end{theorem}
+
+\begin{definition}
+A function $f:\C\to\C$ is \textbf{holomorphic} at $z_0$ if it's differentiable on an open neighbourhood of $z_0$.
+\end{definition}
+
+\begin{definition}
+If $u:U\subseteq\R^2\to\R$ is harmonic (i.e. $u_{xx}+u_{yy}=0$) and $f=u+iv$ is holomorphic, then $v$ is the \textbf{harmonic conjugate} of $u$.
+\end{definition}
+
+\begin{definition}
+The \textbf{complex exponential} is $\exp(z) = e^x(\cos(y)+i\sin(y))$ where $z=x+iy$. It is holomorphic on all of $\C$ (prop 1.6.2).
+\end{definition}
+
+\begin{theorem}
+Let $z,w\in\C$, then
+    \[
+    \exp(z+w)=\exp(z)\exp(w)
+    \quad\text{ and }\quad
+    \exp(z+2\pi i)=\exp(z).
+    \]
+\end{theorem}
+
+\begin{definition}
+The \textbf{complex logarithm} for $z\in\C$ is $\log(z):=\{w\in\C\,:\,\exp(w)=z\}$.
+\end{definition}
+
+\begin{theorem}[1.7.3]
+Let $z,w\in\C$, then
+    \begin{align*}
+    \log(z)=\ln|z| + &i\arg(z),
+    \quad
+    \log(zw)=\log(z)+\log(w),
+    \\
+    &\text{and } \log(1/z)=-\log(z).
+    \end{align*}
+\end{theorem}
+
+\begin{definition}
+The \textbf{principle logarithm} is $\text{Log}(z):= \ln|z| + i\Arg(z)$. 
+\end{definition}
+
+\begin{definition}
+A \textbf{branch cut} is $L_{z_0,\theta} := \{z\in\C:z=z_0+re^{i\theta},r\geq0\}$, giving the \textbf{cut plane} $D_{0,\pi}:=\C\setminus L_{0,\pi}$. If we let $\Arg_\theta(z):=\arg(z)\cap(\theta,\theta+2\pi]$ then $\text{Log}_\theta:=\ln|z| + i\Arg_\theta(z)$.
+\end{definition}
+
+\begin{theorem}[1.7.10]
+Let $\theta\in\R$ and $U\subseteq\C$ with $g:U\to\C$ holomorphic, then $\text{Log}(g(z))$ is holomorhpic on $U\cap g^{-1}(D_{0,\theta})$. Particularly, if $g$ is hol. on $\C$ then $\text{Log}(g(z))$ is holomorhpic on $g^{-1}(D_{0,\theta})$.
+\end{theorem}
+
+
+
+\end{multicols}

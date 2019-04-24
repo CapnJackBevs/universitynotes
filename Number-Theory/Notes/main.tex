@@ -1,0 +1,189 @@
+\documentclass{article}
+\usepackage{style}
+\usepackage[utf8]{inputenc}
+\title{Number Theory}
+\begin{document}
+\maketitle
+
+\section*{Basics}
+\begin{theorem}[Division Algorithm]
+Let $a,b\in\Z$ and $b>0$, then there exist unique $q,r\in\Z$ with $r\in[0,b)$ such that
+    \[
+    a = qb + r.
+    \]
+\end{theorem}
+
+\begin{theorem}[Bezout]
+If $d=\gcd(a,b)$ then there exist $m,n\in\Z$ such that
+    \[
+    ma + nb = d.
+    \]
+\end{theorem}
+
+\begin{definition}
+Let $a,b,u\in\Z$ then
+    \begin{itemize}
+        \item If $u|1$ then $u$ is a \textbf{unit},
+        \item if $a=cd\implies c=1$ or $d=1$ with $a$ a non-unit then $a$ is \textbf{irreducible}
+        \item If $a|cd\implies a|c$ or $a|d$ then $a$ is \textbf{prime}.
+    \end{itemize}
+\end{definition}
+
+
+\section*{Gaussian Integers}
+\begin{definition}[Gaussian Integers]
+    \[
+    \Z[i] := \{a+bi\,:\,a,b\in\Z\}.
+    \]
+\end{definition}
+
+\begin{definition}
+A Gaussian integer $z\in\Z[i]$ is a \textbf{unit} if $\exists z'\in\Z[i]: z\cdot z'=1$.
+\end{definition}
+
+\begin{definition}
+Let $a,b,u\in\Z[i]$ then
+    \begin{itemize}
+        \item If $u|1$ then $u\in U$ is a \textbf{unit} $U=\{\pm1,\pm i\}$,
+        \item if $a=cd\implies c\in U$ or $d\in U$ with $a$ a non-unit then $a$ is \textbf{irreducible}
+        \item If $a|cd\implies a|c$ or $a|d$ then $a$ is \textbf{prime}.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+A Gaussian integer $z\in\Z[i]$ is prime iff it's irreducible.
+\end{theorem}
+
+
+\section*{...}
+\begin{theorem}
+If $p= 1\mod 4$ for prime $p$ then $\exists a,b\in\Z: p=a^2+b^2$.
+\end{theorem}
+
+\begin{theorem}[Wilson]
+If $p$ is prime then it divides $(p-1)!+1$.
+\end{theorem}
+
+\section*{Linear Systems}
+Really cannot be bothered to do this right now.
+\subsection*{Linear Diophantine equations}
+\subsection*{Chinese Remainder theorem}
+
+\section*{Primitive roots}
+\begin{theorem}[Fermat's Little Theorem]
+Let $p$ be prime, then for any $a\in\{1,2,\dots,p-1\}$ we have
+    \[
+    a^{p-1} = 1\mod p.
+    \]
+\end{theorem}
+
+\begin{definition}
+If $\xi^n\neq1 (\mod p)$ for all $n\in\{1,\dots,p-1\}$ and $\xi^{p-1}=1$ then we say that $\xi$ is a \textbf{primative root}.
+\end{definition}
+
+\section*{Legendre Symbol}
+\begin{definition}
+Let $p>0$ be prime and $a\in\Z$ not be divisable by $p$, then
+    \[
+    \left(\frac{a}{p}\right)=
+    \begin{cases}
+    1 &\text{if } \exists r\in\Z: a=r^2\mod p \\
+    -1&\text{otherwise}
+    \end{cases}
+    \]
+\end{definition}
+
+\begin{theorem}
+Let $p>0$ be prime and $a\in\Z$ not be divisable by $p$, then
+\begin{itemize}
+    \item $\left(\frac{a}{p}\right) = a^{\frac{p-1}{2}} \mod p$
+    \item $\left(\frac{ab}{p}\right)=\left(\frac{a}{p}\right)\left(\frac{b}{p}\right)$
+    \item $\left(\frac{ab}{p}\right)=\left(\frac{a-p}{p}\right)$
+\end{itemize}
+\end{theorem}
+
+\begin{theorem}[Quadratic Reciprocity]
+Let $p,q$ be distinct odd primes:
+    \begin{align*}
+        \text{if }p=1\,\mathrm{mod}\ 4\text{ or }q=1\,\mathrm{mod}\ 4\text{ then}\quad
+          &\left(\frac{p}{q}\right)=\left(\frac{q}{p}\right)\\
+        \text{if }p=q=3\,\mathrm{mod}\ 4\text{ then}\quad
+          &\left(\frac{p}{q}\right)=-\left(\frac{q}{p}\right)
+    \end{align*}
+\textsc{TIP:} To remember this use that $pq=1\mod 4$ (if one of $p,q=3\mathrm{mod}\ 4$ then you can't use this theorem).
+\end{theorem}
+
+\section*{Euler's totient function}
+
+\begin{definition}
+\textbf{Euler's totient function} is defined by
+    \[
+    \varphi(n) := |\{z\in\Z\,:\,z<n\text{ and }\gcd(z,n)=1\}|.
+    \]
+\end{definition}
+
+\begin{theorem}[Euler]
+Let $a,n\in\Z$ then
+    \[
+    a^{\varphi(n)} = 1 \mod n.
+    \]
+\end{theorem}
+
+\begin{theorem}
+If $m,n\in\Z$ are coprime then $\varphi(mn)=\varphi(m)\varphi(n)$.
+\end{theorem}
+
+\begin{theorem}
+A number $n\in\Z$ can only be a primative root if it is of the form
+    \[
+    2,4,p^k,\text{ or }2p^k
+    \]
+for $p$ an odd prime.
+\end{theorem}
+
+\begin{theorem}[Gauss Lemma]
+Let $p$ be an odd prime and $a\in\Z$ not be divisable by $p$. Let $S'$ be the set of remainders of the values $\{\frac{a}{p},\frac{2a}{p},\dots,\frac{p-1}{2p}a\}$ whose values are in the range $(0,p)$ then
+    \[
+    \left(\frac{a}{p}\right) = (-1)^{|S'|}.
+    \]
+\end{theorem}
+
+\begin{theorem}
+Let $n=p_1^{k_1}p_2^{k_2}\dots p_m^{k_m}$, then
+    \[
+    \varphi(n) = (p_1^{k_1} - p_1^{k_1-1})(p_2^{k_2} - p_2^{k_2-1})\dots(p_m^{m_1} - p_m^{k_m-1}).
+    \]
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{From previous notes}
+\begin{theorem}
+If $x_0$ is a solution to $ax=c\mod y$ iff $\gcd(x_0,y)|c$, then every solution is of the form
+    \[
+    x = x_0 -\frac{y}{\gcd(x,y)}t,\quad t\in\N.
+    \]
+\end{theorem}
+
+\begin{theorem}[Hensel]
+Suppose $f(x)\in\Z[x]$ and $r,k\in\Z$ with $f(r)=0\mod p^k$ for $p$ prime. Then solutions to $f(x)=0\mod p^k$ are found by:
+    \begin{itemize}
+        \item{If $f'(r)=0\mod p$ then;}
+        \begin{enumerate}
+            \item{if $f(r)=0\mod p^k$ then the $p$ solutions are given by $s = r + tp^{k-1}$ with $t\in[0,p-1]$,}
+            \item{if $f(r)\neq0\mod p^k$ then there are \textsc{no solutions}.}
+        \end{enumerate}
+        \item{if $f'(r)\neq0\mod p$ then there is a \textsc{unique} solution given by $s = r-f(r)\big(f'(r)\big)^{-1} \mod p^k$.}
+    \end{itemize}
+\end{theorem}
+\textsc{REMARK:} The above can be considered, in the first case, as extending $f(x)$ using a kind of Taylor series $f(a+b) = f(a)+f'(a)b+\frac{f''(a)}{2!}b^2+\dots$ with $b=p^{k-1}$. In the second case this is somewhat an analogy of Newton's method of successive approximations $x_{n+1}=x_n + \frac{f'(x_n)}{f(x_n)}$.
+
+\begin{theorem}[Quadratic Recipricocy II]
+Let $p,q$ be prime, then
+    \[
+    \left(\frac{p}{q}\right)\left(\frac{q}{p}\right) 
+    = (-1)^{\frac{p-1}{2}}(-1)^{\frac{q-1}{2}}.
+    \]
+\end{theorem}
+
+\end{document}

@@ -1,0 +1,123 @@
+\noindent
+\begin{multicols}{2}
+\section*{Chapter Three - Complex integration}
+
+\begin{definition}
+Let $[a,b]\subseteq\R$ be a closed interval and $f:[a,b]\to\C$ be of the form $f=u+iv$, then $f$ is \textbf{integrable} if $u$ and $v$ are in the real sense. Then $\int_{[a,b]}f(t)dt = \int_{[a,b]}u(t)dt + i\int_{[a,b]}v(t)dt$.
+\end{definition}
+
+\begin{theorem}[3.1.2]
+Integration in $\C$ is linear, and $\int_a^b\frac{dF}{dt}dt = F(b)-F(a)$. One estimate for integration is $\left|\int_a^bf(t)dt\right|\leq \int_a^b|f(t)|dt$.
+\end{theorem}
+
+\begin{definition}
+A \textbf{parametrized curve} $\Gamma$ from $z_0$ to $z_1$ (distinct) is a continuous function $\gamma:[t_0,t_1]\to\C$ with $\gamma(t_0)=z_0$ and $\gamma(t_1)=z_1$. It is \textbf{regular} if $\gamma'(t)$ exists, is continuous and non-zero.
+\end{definition}
+
+\begin{definition}
+Let $\Gamma$ be a regular curve and $f:\Gamma\to\C$ continuous. The \textbf{integral of $f$ along $\Gamma$} is $\int_\Gamma f(z)dz = \int_{t_0}^{t_1} f(\gamma(t))\gamma'(t)dt$.
+\end{definition}
+
+\begin{definition}
+The \textbf{arc-length of $\Gamma$} is $l(\Gamma):=\int_{t_0}^{t_1}|\gamma'(t)|dt$.
+\end{definition}
+
+\begin{theorem}[3.2.9]
+Let $\Gamma$ be regular and $f:\Gamma\to\C$ continuous, then
+    \[
+    \left|\int_\Gamma f(z) dz\right| \leq \max_{z\in\Gamma}|f(z)|l(\Gamma)
+    \]
+\end{theorem}
+
+\begin{definition}
+\textbf{$D\subseteq\C$ is a domain} if it's open and $\forall z,w\in D: \exists\Gamma$, a contour connecting $z$ to $w$.
+\end{definition}
+
+\begin{theorem}
+\textbf{Fundamental Theorem of Calculus:} Let $D$ be a domain and $\Gamma\subseteq D$ a contour connecting $z_0,z_1\in D$ and $F'=f$ then $\int_\Gamma f(z)dz = F(z_1)-F(z_0)$.
+\end{theorem}
+
+\begin{definition}
+Let $\Gamma\subseteq D$ be a contour in domain $D\subseteq\C$, $\Gamma$ is a \textbf{closed contour} if it has equal endpoints ($\gamma(t_0)=\gamma(t_1)$).
+\end{definition}
+
+\begin{theorem}
+\textbf{Path-independence:} Let $D\subseteq\C$ be a domain with continuous $f:D\to\C$ then the following are equivalent:
+\begin{itemize}
+    \item{$f$ has an anti-derivative $F$ on $D$,}
+    \item{$\int_\Gamma f(z)dz=0$ for all closed contours $\Gamma\subseteq D$,}
+    \item{all contour integrals $\int_\Gamma f(z)dz$ are independent of path, thus depend only on the end-points.}
+\end{itemize}
+\end{theorem}
+
+\begin{definition}
+A contour $\Gamma$ is \textbf{simple} if it has no self-intersections, if it is also closed then we call it a \textbf{loop}. A loop is \textbf{positively-oriented} if a parametrisation $\gamma$ goes around anti-clockwise.
+\end{definition}
+
+\begin{definition}
+Let $\Gamma$ be a loop, then $\Int(\Gamma)$ is the interior, and $\Ext(\Gamma)$ is the exterior so that $\C=\Int(\Gamma)\cup\Gamma\cup\Ext(\Gamma)$.
+\end{definition}
+
+\begin{definition}
+A domain $D$ is \textbf{simply-connected} if for any loop $\Gamma: \Int(\Gamma)\subseteq D$.
+\end{definition}
+
+\begin{theorem}
+\textbf{Cauchy-Integral:} Let $\Gamma$ be a loop and $f$ be holomorphic inside and on $\Gamma$, then the following hold:
+\begin{itemize}
+    \item{ 
+      \[
+      \int_\Gamma f(z) dz = 0,
+      \]}
+    \item{ 
+      \[
+      \frac{1}{2\pi i}\int_\Gamma \frac{f(z)}{z-z_0} dz = f(z_0),
+      \]}
+    \item{ 
+      \[
+      \frac{n!}{2\pi i}\int_\Gamma \frac{f(w)}{(w-z)^{n+1}} dz = f^{(n)}(z).
+      \]}
+\end{itemize}
+\end{theorem}
+
+\begin{theorem}[3.4.11]
+Let $\Gamma$ be a loop not passing through $z_0$, then
+    \[
+    \int_\Gamma \frac{1}{z-z_0} dz =
+    \begin{cases}
+    2\pi i  &\text{ if } z_0\in \Int(\Gamma) \\
+    0       &\text{otherwise}
+    \end{cases}.
+    \]
+\end{theorem}
+
+\begin{theorem}[3.4.12]
+Let $\Gamma_1,\Gamma_2$ be loops with $f$ holomorphic on both then $\int_{\Gamma_1}f(z)dz=\int_{\Gamma_2}f(z)dz$, i.e. the two loops can freely be \textbf{deformed} into each other.
+\end{theorem}
+
+\begin{theorem}[3.5.2]
+Let $f$ be holomorphic on a domain $D$, then $f$ has infinitely many derivatives, all of which are holomorphic.
+\end{theorem}
+
+\begin{theorem}[Morera]
+Let $D\subseteq\C$ be a domain and $f$ is continuous with $\int_\Gamma f(z)dz=0$ for all loops $\Gamma$, then $f$ is holomorphic on $D$.
+\end{theorem}
+
+\begin{theorem}
+Let $f:\overline{D_R}(z_0)\to\C$ be holomorphic and bounded by $M$. Then
+    \[
+    |f^{(n)}(z_0)| \leq \frac{n!M}{R^n}.
+    \]
+\end{theorem}
+
+\begin{theorem}
+\textbf{Liouville:} Let $f$ be holomorphic on $\C$ and bounded, then $f$ is constant.
+\end{theorem}
+
+\begin{theorem}
+\textbf{Maximum modulus principle:} Let $D\subseteq\C$ be a domain on which $f$ is holomorphic and bounded by $M$. If $f$ achieves its maximum inside $D$ the $f$ is constant on $D$.
+\end{theorem}
+
+
+
+\end{multicols}

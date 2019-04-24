@@ -1,0 +1,31 @@
+\dotfill
+\begin{multicols}{2}
+\subsection*{Power Series}
+
+\begin{definition}[Radius of Convergence]
+The radius of convergence (RoC), $R$, of a power-series $S(x)\sum_{k=0}^\infty a_k(x-x_0)^k$ is such that $S(x)$ converges absolutely for $x-x_0<R$ and diverges for $x-x_0>R$.
+\end{definition}
+
+\begin{theorem}[Radius of convergence]
+Let $S(x):=\sum_{k=0}^\infty a_k(x-x_0)^k$ be a power series with RoC $R$, then
+\begin{itemize}
+    \item{If $r=\left|\frac{1}{\limsup_{k\to\infty}a_k(x-x_0)^k}\right|^{1/k}<\infty$ then $R=r$ and $S(x)$ converges uniformly on $(x_0-R,x_0+R)$.}
+    \item{If $r=\lim_{k\to\infty}\frac{|a_k|}{|a_{k+1}|}$ exists then $R=r$.}
+\end{itemize}
+\end{theorem}
+\begin{proof1}
+Root and ratio test, respectively.
+\end{proof1}
+
+\begin{definition}[Interval of Convergence]
+The Interval of convergence of a power series $S(x)$ is the largest interval for which $S(x)$ converges.
+\end{definition}
+
+\begin{theorem}[Abel's Theorem]
+If $S(x) = \sum_{k=0}^\infty a_k(x-x_0)^k$ converges on $[a,b]$ then $S(x)$ is continuous and converges uniformly on $[a,b]$.
+\end{theorem}
+
+\begin{theorem}
+If $S(x):=\sum_{k=0}^\infty a_k(x-x_0)^k$ has RoC $R>0$ then $S'(x)=\sum_{k=0}^\infty ka_k(x-x_0)^{k-1}$ for $x\in(x_0-R,x_0+R)$.
+\end{theorem}
+\end{multicols}

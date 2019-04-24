@@ -1,0 +1,19 @@
+% known Taylor series expansions
+% trigonometric identities
+
+\begin{multicols}{2}
+\section*{Useful Formulae}
+\begin{align*}
+    \sin(a\pm b) &= \sin(a)\cos(b)\pm\cos(a)\sin(b) \\
+    \cos(a\pm b) &= \cos(a)\cos(b)\mp\sin(a)\sin(b) \\
+    \sin(z) &= \sum_{j=0}^\infty \frac{z^j}{j!} \\
+    \cos(z) &= \sum_{j=0}^\infty \frac{z^{2j}}{(2j)!} \\
+    \exp(z) &= \sum_{j=0}^\infty \frac{z^{2j+1}}{(2j+1)!} \\
+\end{align*}
+\end{multicols}
+
+% BACKGROUND PICTURE :::
+\tikz[remember picture,overlay]
+{
+\node[opacity=0.1,inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth]{pictures/unitcirc.png}};
+}\clearpage

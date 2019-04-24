@@ -1,0 +1,127 @@
+\newpage
+\begin{multicols}{2}
+\section*{Chapter Five - Inner product spaces}
+
+\begin{definition}
+Let $V$ be a vector space over $\R$, an \textbf{iner product} of $V$ is a mapping
+    \[
+    (-,-):V\times V\to\R
+    \]
+such that $\forall\u,\v,\vec{w}\in V$:
+    \begin{itemize}
+        \item $(\lambda\u+\mu\v,\vec{w}) = \lambda(\u,\vec{w})+\mu(\v,\vec{w})$,
+        \item $(\u,\v)=(\v,\u)$,
+        \item $(\u,\u)\geq0$ with equality iff $\u=\vec{0}$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+Let $V$ be a vector space over $\C$, an \textbf{iner product} of $V$ is a mapping
+    \[
+    (-,-):V\times V\to\C
+    \]
+such that $\forall\u,\v,\vec{w}\in V$:
+    \begin{itemize}
+        \item $(\lambda\u+\mu\v,\vec{w}) = \lambda(\u,\vec{w})+\mu(\v,\vec{w})$,
+        \item $(\u,\v)=\overline{(\v,\u)}$,
+        \item $(\u,\u)\geq0$ with equality iff $\u=\vec{0}$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+If $(\u,\v)=0$ then we say $\u$ and $\v$ are \textbf{orthogonal} and write $\u\perp\v$.
+\end{definition}
+
+\begin{definition}
+Let $V$ be an inner-product space, then the \textbf{length} or \textbf{norm} of a vector $\v\in V$ is
+    \[
+    ||\v|| = \sqrt{(\v,\v)}.
+    \]
+\end{definition}
+
+\begin{definition}
+A family of vectors $(\v_i)_{i\in I}$ is an \textbf{orthonormal family of vectors} if $(\v_i,\v_j)=\delta_{ij}$.
+\end{definition}
+
+\begin{theorem}[5.1.10]
+Every finite-dimensional inner-product space has an orthonormal basis.
+\end{theorem}
+
+\begin{definition}
+Let $V$ be an inner-product space with subset $T\subseteq V$, the \textbf{orthogonal set to $T$} is $T^\perp =\{\v\in V: \v\perp\u\text{ for all }\u\in T\}$.
+\end{definition}
+
+\begin{theorem}[5.2.2]
+Let $U$ be a subspace of $V$, then $U$ and $U^\perp$ are complementary; $U^\perp = V\setminus U$ and $V=U\otimes U^\perp$.
+\end{theorem}
+
+\begin{definition}
+Let $U$ be a subspace of inner-product space $V$, then the \textbf{orthogonal projection from $V$ onto $U$} is
+    \[
+    \pi_U:V\to U, \v=\vec{p}+\vec{r}\mapsto \vec{p}.
+    \]
+\end{definition}
+
+\begin{theorem}[5.2.5]
+This is the \textbf{Cauchy-Schwarz inequality}:
+    \[
+    |(\u,\v)| \leq ||\u||\cdot ||\v||.
+    \]
+\end{theorem}
+
+\begin{theorem}[5.2.6] Let $V$ be a normed inner-product space, $\v\in V$:
+    \begin{itemize}
+        \item $||\v||\geq0$ with equality iff $\v=\vec{0}$,
+        \item $||\lambda\v||=|\lambda|\cdot||\v||$,
+        \item $||\u+\v||\leq ||\u||+||\v||$.
+    \end{itemize}
+\end{theorem}
+
+% GRAM SCHMIDT GOES HERE
+
+\begin{definition}
+Let $V$ be an inner-product space, then $T,S\in\End(V)$ are \textbf{adjoint} if for all $\u,\v\in V$:
+    \[
+    (T\u,\v) = (\u,S\v).
+    \]
+We write $S=T^*$ and say that \textbf{$S$ is the adjoint of $T$}.
+\end{definition}
+
+\begin{theorem}[5.3.4]
+Let $T\in\End(V)$, then $T$ has an adjoint.
+\end{theorem}
+
+\begin{definition}
+Let $T\in\End(V)$, then $T$ is \textbf{self-adjoint} if $T^*=T$.
+\end{definition}
+
+\begin{theorem}[5.3.7]
+Let $T\End(V)$ be self-adjoint, then
+    \begin{itemize}
+        \item Every eigenvalue of $T$ is real,
+        \item $T$ has at least one eigenvalue,
+        \item if the eigenvalues are distinct then the eigenvectors are orthogonal.
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[Spectral]
+Let $V$ be a finite-dimensional inner-product space and $T\in\End(V)$ be self-adjoint, then $V$ has an orthonormal basis consisting of eigenvectors of $T$.
+\end{theorem}
+
+\begin{definition}
+A matrix $P$ is \textbf{orthogonal} if $P^{-1}=P^T$.
+\end{definition}
+
+\begin{theorem}[Spectral II]
+Let $A\in\Mat(n;\R)$ be symmetric. Then there is an orthogonal matrix $P\in\Mat(n;\R)$ such that $P^TAP$ is diagonal with entries being eigenvalues of $A$.
+\end{theorem}
+
+\begin{definition}
+A matrix $A\in\Mat(n;\C)$ is \textbf{unitary} if $P^{-1}=\overline{P}^T$.
+\end{definition}
+
+\begin{theorem}[Spectral III]
+Let $A\in\Mat(n;\C)$ be hermitian ($A=\overline{A}^T$). Then there is a unitary matrix $P\in\Mat(n;\C)$ such that $\overline{P}^TAP$ is diagonal with entries being eigenvalues of $A$.
+\end{theorem}
+
+\end{multicols}

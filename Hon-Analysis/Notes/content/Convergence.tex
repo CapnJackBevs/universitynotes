@@ -1,0 +1,56 @@
+\vspace{-6ex}
+\noindent\rule{\linewidth}{0.5pt}\vspace{-2ex}
+
+\begin{multicols}{2}
+\subsection*{Convergence: Point-wise vs Uniform}
+
+\begin{definition}
+A function $f$ converges to $L$ as $x\to a$ if $\forall\varepsilon>0:\exists\delta>0:$ such that $0\neq |x-a|<\delta\implies|f(x)-L|<\varepsilon$.
+\end{definition}
+
+\begin{theorem}[3.6]
+$f\to L$ as $x\to a$ on $I\setminus\{a\}$ iff for every sequence such that $x_n\to a$ we have $f(x_n)\to L$. \textbf{This is a good way of disproving convergence.}
+\end{theorem}
+
+\begin{definition}[Convergence]
+A sequence of function $(f_n:E\to\R)_{n\in\N}$ is said to converge
+\begin{itemize}
+    \item{\textbf{point-wise} if ${\color{orange!75}\forall\varepsilon>0:} {\color{red!65}\forall x\in E:}{\color{blue!65}\exists N:\forall n\geq N:} |f-f_n|<\varepsilon$.}
+    \item{\textbf{uniformly} if ${\color{orange!75}\forall\varepsilon>0:}{\color{blue!65}\exists N:\forall n\geq N: }{\color{red!65}\forall x\in E:} |f-f_n|<\varepsilon$.}
+\end{itemize}
+\end{definition}
+
+\begin{theorem}[7.9]
+If $f_n\to f$ uniformly and each $f_n$ is continuous then $f$ is continuous.
+\end{theorem}
+\begin{proof1}
+Let $\varepsilon>0$ and $N\in\N$ so that $n\geq N \Rightarrow |f_n-f|<\frac{\varepsilon}{3}$ (by \textit{uniform convergence}). Let $\delta>0$ so $|x-x_0|<\delta\Rightarrow|f_N(x_0)-f_N(x)|<\frac{\varepsilon}{3}$ (by \textit{continuity of} $f_N$ at $x_0$). So $|f(x)-f(x_0)|\leq|f-f_N|+|f_N(x_0)-f_N(x)|+|f_N(x_0)-f_N(x)|<\varepsilon$. 
+\end{proof1}
+
+\begin{theorem}[7.10]
+If $f_n\to f$ uniformly then $\lim_{n\to\infty}\left(\int_a^b f_n(x)dx\right) = \int_a^b f(x)dx$.
+\end{theorem}
+\begin{proof1}
+Note that $f$ is bounded on $[a,b]$. Let $\varepsilon>0$ and choose $N\in\N$ so that $n\geq N$ gives $|f(x)-f_n(x)|<\varepsilon$ for all $x\in[a,b]$. Choose step functions $\psi_P = \frac{\varepsilon}{|P|}$ for decreasing partitions $P$ of $[a,b]$ so that $|f(x)-f_n(x)|<|\psi_n|<\frac{\varepsilon}{|P|}$. Then $0\leq f < \psi_P$ for all $P$ and $\int\psi_P-0\to 0$ so $f-f_n$ is integrable, giving that $f$ is too, and $\lim(\int f_n) = \int\lim(f_n) = \int f$, as stated!
+\end{proof1}
+
+\begin{theorem}[Cauchy Criterion]
+The sequence $f_n\to f$ uniformly iff $\forall\varepsilon>0:\exists N\in\N: n,m>n\Rightarrow |f_n-f_m|<\varepsilon$.
+\end{theorem}
+\begin{proof1}
+Triangle inequality.
+\end{proof1}
+
+\begin{theorem}[Weierstrass M-Test:] If $(f_n:E\to \R)_{n\in\N}$ and $\forall n: |f_n|\leq M_n$ with $\sum_{k=1}^\infty M_k <\infty \implies \sum_{k=1}^\infty f_k$ converges uniformly and absolutely. 
+\end{theorem}
+\begin{proof1}
+Let $\varepsilon>0$ and use Cauchy criterion to choose $N$ s.t. $\forall m\geq n\geq N: \sum_{k=n}^m M_k<\varepsilon$. Then $\left|\sum_{k=n}^m f_k\right|\leq \sum_{k=n}^m |f_k|\leq \sum_{k=n}^m M_k<\varepsilon$.
+\end{proof1}
+
+\begin{theorem}[Dirichlet's Test]
+Suppose $f_k,g_k:E\to\R$ and $\left|\sum_{k=1}^\infty f_k\right|\leq M$ and $g_k\to0$ uniformly then $\sum_{k=1}^\infty f_kg_k$ converges uniformly.
+\end{theorem}
+\begin{proof1}
+$\left|\sum_{k=m}^n f_kg_k\right|$ $=\left|g_n\sum_{k=m}^n f_k + \sum_{k=m}^{n-1}\left(\sum_{i=k}^mf_k\right)(g_k-g_{k+1})\right|$ $\leq 2Mg_n + 2M\sum_{k=m}^{n-1} (g_k-g_{k+1})$ $= 2Mg_m$.
+\end{proof1}
+\end{multicols}

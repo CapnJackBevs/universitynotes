@@ -1,0 +1,29 @@
+\noindent\dotfill
+\begin{multicols}{2}
+\section*{Chapter Six - Jordan normal form}
+\begin{enumerate}
+    \item{\vspace{-1ex}Calculate the eigenvalues $\lambda_1,\dots,\lambda_s$ along with geometric $\mu_1,\dots,\mu_s$ and algebraic $m_1,\dots,m_s$ multiplicities,}
+    %
+    \item{
+    Compute corresponding eigenspaces
+    \[E^k_\lambda=\{\v\in V:(A-\mathbb{I}\lambda)^k\v=0\}.\]}
+    %
+    \item{Compute the following, and draw the chart on the right:
+      \begin{align*}
+          d_1 &= \dim(E_\lambda^1) 
+            &&\underbrace{\Box \Box \Box \Box \Box}_{d_1\text{ boxes}}\\
+          d_2 &= \dim(E_\lambda^2) - \dim(E_\lambda^1)
+            &&\underbrace{\Box \Box \Box \Box}_{d_2\text{ boxes}}\\
+          &\vdots && \quad\quad\vdots \\
+          d_k &= \dim(E_\lambda^k) - \dim(E_\lambda^{k-1})
+            &&\underbrace{\Box \Box \Box}_{d_k\text{ boxes}}\\
+      \end{align*}}
+    %
+    \item{Start at the bottom of the diagram, filling row $k$ with the linearly independent eigenvectors in $E_\lambda^k$ which \textbf{are not in} $E_\lambda^{k-1}$. Each time you fill in a box with a vector $\v_k$, fill in every box above with the vectors $\v_{k+1}=(A-\mathbb{I}\lambda)^k\v$ until you reach the top.}
+    %
+    \item{Repeat steps two to four with different eigenvalues until the diagram is full. Then $Q$ is the matrix whose columns are the top-left vector followed by the vectors below it so the Jordan-normal form is $J=Q^{-1}AQ$.}
+    %
+    \item{In fact you \textbf{needn't calculate $Q$}. Each column of the diagram is a Jordan block - easy!}
+\end{enumerate}
+
+\end{multicols}

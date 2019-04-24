@@ -1,0 +1,170 @@
+\begin{multicols}{2}
+\section*{Metric Spaces\vspace{-2ex}}
+\scriptsize{``Metric spaces generalise our idea of \textit{distance}."}\small
+% Open sets, closed sets, interior, boundary, closure etc
+% Cauchy (completeness), convergence, cluster points, limit points, closedness
+% Compactness, limits, continuity and connectedness
+\subsubsection*{\vspace{-2ex}Basic Ideas\vspace{-1ex}}
+
+\begin{axiom}[Metric Space]
+A \textit{metric space} $M=(X,\tau)$ is a set $X$ and a function $\tau:X\times X\to X$ such that for all $x,y,z\in X:$
+    \begin{itemize}
+        \item{\textbf{Positive-definite: }$\tau(x,y)\geq0$ with $\tau(x,y)=0$ iff $x=y$,}
+        \item{\textbf{Symmetric: }$\tau(x,y)=\tau(y,x)$, and}
+        \item{\textbf{Triangle Inequality: }$\tau(x,z)\leq\tau(x,y)+\tau(y,z)$.}
+    \end{itemize}
+\end{axiom}
+
+\begin{definition}[Open and Closed Balls]
+The open ball of radius $r$ centred at $x_0$ of a metric space $M=(X,\tau)$ is $B_r(x_0) = \{x\in X\,:\,\tau(x,x_0)<r\}$. The closed ball is $\overline{B}_r(x_0)= \{x\in X\,:\,\tau(x,x_0)\leq r\}$. \textit{These generalise open/closed intervals.}
+\end{definition}
+
+\begin{definition}[Open and Closed sets]
+A subset $V\subseteq X$ of a metric-space $(\tau,X)$ is said to be \textit{open} if $\forall\varepsilon>0:\exists B_\varepsilon(x_0)\subseteq V$. A set $E\subeteq X$ is \textit{closed} if $X\setminus E$ is open.
+\end{definition}
+
+\begin{theorem}[10.14]
+Let $M=(X,\tau)$ be a metric space.
+    \begin{itemize}
+        \item{A sequence in $M$ can have at most one limit,}
+        \item{if $x_n\to x$ and $x_{n_k}$ is a subsequence of $x_n$ then $x_{n_k}\to x$ also,}
+        \item{every convergent sequence in $M$ is bounded,}
+        \item{every convergent sequence is Cauchy.}
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[10.16]
+A set $E\subset X$ for metric space $M=(X,\tau)$ is closed iff every convergent sequence $x_k$ in $E$ satisfies $\lim_{k\to\infty}(x_k)\in E$.
+\end{theorem}
+\begin{proof1}
+Suppose (for contradiction) that $E\subseteq X$ is closed and $\lim_{k\to\infty}x_n \in X\setminus E$ which is open by definition of closed, then there is an $N$ such that $\forall n\geq N: x_n\in X\setminus E$ by the definition of limits - contradiction! The other direction uses squeeze-theorem to show some sequence $\tau(x_k,x)\to0$ with $x\in X\setminus E$ and $x_k\in E$, so that $x_k\to x$ giving a contradiction that $x$ is and isn't in $E$.
+\end{proof1}
+
+\begin{definition}[Complete]
+A metric space $M=(x,\tau)$ is \textit{complete} if every Cauchy sequence $x_n\in X$ converges to some point in $X$.
+\end{definition}
+
+\begin{theorem}[10.21]
+If $(X,\tau)$ is a complete metric space with $E\subseteq X$ then $(E,\tau|_{E})$ is a complete metric space iff $E$ is closed.
+\end{theorem}
+\begin{proof1}
+If $E$ is complete and $x_n\to x\in E$ and so by Theorem 10.14(iv) the sequence $(x_k)_{k\in\N}$ is Cauchy, so by 10.16 $E$ is closed. Suppose $E$ is closed and $x_n\in E\subseteq X$ is Cauchy, then $x_n$ is Cauchy (and hence convergent) in $X$ since $X$ is complete and since $E$ is closed this limit must belong to $E$.
+\end{proof1}
+
+\subsubsection*{Limits and Continuity}
+\begin{definition}[Cluster Point]
+A point $a\in X$ for metric space $(X,\tau)$ is a \textit{cluster point of $X$} iff $\forall\delta>0: |B_\delta(a)|=\infty$. \textit{This avoids the problem that $|x-y|<\delta$ may have no solutions with $x\neq y$}.
+\end{definition}
+
+\begin{definition}[Convergence]
+Let $a$ be a cluster point of metric space $(X,\tau)$ and $f:X\setminus\{a\}\to Y$ for some metric space $(Y,\rho)$ then $f(x)$ converges to $L$ if $\forall\varepsilon>0:\exists\delta>0: 0<\tau(x,a)<\delta\implies\tau(f(x),L)<\varepsilon$.
+\end{definition}
+
+\begin{definition}[Continuous]
+A function $f:E\subseteq X\to Y$ between metric spaces $(X,\tau)$ and $(Y,\rho)$ is continuous at $x_0\in E$ iff $\forall\varepsilon>0:\exists\delta>0: \tau(x,x_0)<\delta$ and $x\in E \implies \rho(f(x),f(x_0))<\varepsilon$.
+\end{definition}
+
+\begin{theorem}[10.28 and 10.29]
+A function between metric spaces $(X,\tau)$ and $(Y,\rho)$ is continuous iff for any sequence $x_n\to x\in X$ we have $f(x_n)\to f(x)$. Furthermore if $f:X\to Y$ and $g:Y\to Z$ are continuous then $\lim(g\circ f) = g(\lim(f))$.
+\end{theorem}
+
+\subsubsection*{Interior, Closure and Boundary}
+\begin{theorem}[10.31]
+Let $\{V_\alpha\}_{\alpha\in A}$ and $\{E_\beta\}_{\beta\in B}$ be a collection of open and closed sets, respectively:
+    \begin{itemize}
+        \item{$\bigcup_{\alpha\in A}V_\alpha$ is open.}
+        \item{If $|A|$ is finite then $\bigcap_{\alpha\in A}V_\alpha$ is open.}
+        \item{$\bigcap_{\beta\in B}E_\beta$ is closed.}
+        \item{If $|B|$ is finite then $\bigcup_{\beta\in B}E_\alpha$ is closed.}
+    \end{itemize}
+\end{theorem}
+\begin{proof1}
+Just follow the definitions and use De-Morgan's laws.
+\end{proof1}
+
+\begin{definition}[Interior, Closure, Boundary]
+Let $(X,\tau)$ be a metric space and $E\subseteq X$
+    \begin{itemize}
+        \item{The interior of $E$ is $E^o := \bigcup \{V\subset E\,:\,V\text{ is open in }X\}$,}
+        \item{the closure of $E$ is $\overline{E}:=\bigcap\{B\supseteq E\,:\,B\text{ is closed in }X\}$, and}
+        \item{the boundary of $E$ is $\partial E := \{x\in X\,:\,\forall r>0\,B_r(x)\cap E\neq\emptyset\neq B_r(x)\cap(X\setminus E)\} = \overline{E}\setminus E^o$.}
+    \end{itemize}
+Thus $E^o\subseteq E$ is the largest open subset of $E$ and $\overline{E}\supseteq E$ is the smallest closed superset of $E$. The fundamental theorem of calculus determines an integral based only on the endpoints of the domain, the boundary of a set generalises this.
+\end{definition}
+
+\begin{theorem}[10.40]
+Let $A,B\subseteq X$ for a metric space $(X,\tau)$, then
+    \begin{align*}
+        (A\cup B)^o &\supseteq A^o\cup B^o, && (A\cap B)^o = A^o\cap B^o, \\
+        \overline{A\cup B} &=\overline{A}\cup\overline{B},
+        && \overline{A\cap B} \subseteq \overline{A}\cap \overline{B}.
+    \end{align*}
+\end{theorem}
+
+\subsubsection*{Compactness}
+Compactness generalises the idea of a `closed and bounded interval' which we use to prove the Extreme Value Theorem (EVT), thus the aim of this section is to prove EVT for more general metric spaces.
+\begin{definition}[Covering]
+Let $\mathcal{V}=\{V_i\}_{i\in I}$ be a collection of subsets $V_i\subseteq X$ of a metric space $(X,\tau)$ with $E\subseteq X$.
+    \begin{itemize}
+        \item{$\mathcal{V}$ \textbf{covers} $E$ iff $E\subseteq \bigcup_{i\in I} V_i$,}
+        \item{$\mathcal{V}$ is an \textbf{open cover} iff each $V_i$ is open and $\mathcal{V}$ covers $E$, and}
+        \item{$\mathcal{V}$ has a \textbf{finite subcover} iff $\exists I_0\subseteq I:|I_0|<\infty$ such that $\{V_i\}_{I_0}$ covers $\mathcal{V}$.}
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Compact]
+A subset $H\subseteq X$ of a metric space is \textbf{compact} iff every open covering of $H$ has a finite subcover, thus compact sets are those that can be covered by finitely many sets of arbitrarily small size.
+\end{definition}
+
+\begin{theorem}[10.44-10.46]
+Let $H\subseteq X$ for $H$ closed and $(X,\tau)$ compact, then $H$ is compact and thus is closed and bounded.
+\end{theorem}
+
+\begin{definition}[Separable]
+A metric space $(X,\tau)$ is separable iff it contains a countable dense subset, ie $\forall a\in X: \exists (x_k)_{k\in\N}: x_k\to a$ as $k\to\infty$ with $x_k\in Z$ for some countable $Z$. This allows us to get a partial converse to Theorem 10.46.
+\end{definition}
+
+\begin{theorem}[Lindel\"of]
+Let $E\subseteq X$ for separable metric space $(X,\tau)$. If $\mathcal{V}$ is an open cover of $E$ then $\mathcal{V}$ has a finite subcover.
+\end{theorem}
+
+\begin{theorem}[Heine-Borel]
+Let $(X,\tau)$ be a separable metric space where every bounded sequence has a convergent subsequence and let $H\subseteq X$. Then $H$ is compact $\Leftrightarrow H$ is closed and bounded. 
+\end{theorem}
+
+\subsubsection*{Connectedness}
+\begin{definition}[Connected]
+Let $U,V\subseteq X$ be open in a metric space $(X,\tau)$, they \textbf{separate} $X$ iff $X=U\cup V$ and $U\cap V=\emptyset$. The space $X$ is \textbf{connected} if no such separating $U,V$ exist. (ie. the sets $(-\infty,\sqrt{2})\cup(\sqrt{2},\infty)$ separate $\mathbb{Q}$, so the rationals aren't connected).
+\end{definition}
+
+\begin{definition}[Relatively open/closed]
+Let $E\subset X$ for metric space $(X,\tau)$, then $U\subseteq E$ is \textit{relatively open} (resp. closed) if $\exists V\subseteq X: U=E\cap V$ and $V$ open (resp. closed).
+\end{definition}
+\end{multicols}
+
+\newpage
+\begin{multicols}{2}
+\subsubsection*{Continuous Functions}
+
+Recall for this section that function $f:(X,\tau)\to (Y,\rho)$ is \textit{continuous} at $a\in X$ if $\forall\varepsilon>0:\exists\delta>0:\tau(x,a)<\delta\Rightarrow\rho(f(x),f(a))<\varepsilon$. In other words $B_\delta(a)\subseteq f^{-1}\big(B_\varepsilon(f(a))\big)\subseteq X$. This leads to
+
+\begin{theorem}[Continuity]
+A function $f:X\to Y$ is continuous iff $\forall V\subseteq Y$ open: $f^{-1}(V)$ is open.
+\end{theorem}
+
+\begin{theorem}[10.61 and 10.62]
+If $H\subseteq X$ is compact and $f:H\to Y$ is continuous then $f(X)$ is compact. If $E$ is connected in $X$ and $f:E\to Y$ is continuous then $f(E)$ is connected.
+\end{theorem}
+
+\begin{theorem}[Extreme Value Theorem]
+Let $\emptyset\neq H \subset X$ be a compact subset of a metric space $(X,\tau)$ with $f:H\to\R$ continuous, then $M:=\sup\{f(x)\,:\,x\in H\}$ and $m:=\inf\{f(x)\,:\,x\in H\}$ are finite real numbers and $\exists x_M,x_m\in H: f(x_m)=m$ and $f(x_M)=M$.
+\end{theorem}
+\begin{proof1}
+Since $H$ is compact so is $f(H)$ by 10.61, so by 10.64 $f(H)$ is closed and bounded, thus $M$ is bounded (ie finite). By the approximation property let $x_k\in H$ be so that $f(x_k)\to M$ so that $x_M=\lim_{k\to\infty}(x_k)$ since $f(H)$ is closed and thus contains its limit points.
+\end{proof1}
+
+\begin{theorem}[10.64]
+If $H$ is compact and $f:H\to Y$ is injective and continuous then $f^{-1}$ is continuous on $f(H)$.
+\end{theorem}
+
+\end{multicols}

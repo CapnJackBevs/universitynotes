@@ -1,0 +1,182 @@
+\newpage
+\begin{multicols}{2}
+\section*{Useful Formula\vspace{-2ex}}
+\subsection*{Various Equations\vspace{-1ex}}
+% Reverse triangle inequality etc, APPROXIMATION PROPERTY
+
+\begin{theorem}[De-Morgan's Law]
+If for any $\alpha\in A$ for indexing set $A$ we have $E_\alpha\subseteq X$ then
+    \[
+    X\setminus\bigcup_{\alpha\in A} E_\alpha = \bigcap_{\alpha\in A} E_\alpha
+    \quad\text{ and }\quad
+    X\setminus\bigcap_{\alpha\in A} E_\alpha = \bigcup_{\alpha\in A} E_\alpha.
+    \]
+\end{theorem}
+
+\begin{axiom}[Completeness]
+If $A\subset\R$ then $\sup(A)\in\R$ exists.
+\end{axiom}
+
+\begin{theorem}[Nested Interval]
+If $(I_n)_{n\in\N}$ is a sequence of non-empty bounded intervals then $\bigcap_{n\in\N}I_n\neq\emptyset$, specifically if $|I_n|\to0$ then $I_n\to\{x\}$, a singleton.
+\end{theorem}
+
+\begin{theorem}
+The metric space $(\R,|\cdot|)$, ie $\R$ under the Euclidean metric, is complete \textit{(``Cauchy $\implies$ convergent")}.
+\end{theorem}
+\begin{proof1}
+Suppose that $(x_n)_{n\in\N}$ is Cauchy so that $\forall\varepsilon>0:\,\forall m,n>N:\, |x_m-x_n|<\varepsilon$. Choose $\varepsilon=1$ and $N$ so that $|x_N-x_m|<1$ for all $m>N$ giving by the triangle inequality that $|x_m|<1+|x_N|$. Thus $(x_n)_{n\in\N}$ is bounded by $M:=\max\{|x_1|,\dots,|x_{N-1}|,|x_N|+1\}$, then use Bolzano-Weierstrass.
+\end{proof1}
+
+\begin{theorem}[Bernoulli's inequality]
+Let $x\in[-1,\infty)$. Then $0<\alpha\leq 1\implies (1+x)^\alpha \leq 1 + \alpha x$  and
+ $\alpha\geq1\implies(1+x)^\alpha \geq 1 + \alpha x$.
+\end{theorem}
+\begin{proof1}
+Let $f(t)=t^\alpha$ then $f'(t)=\alpha t^{\alpha-1}$ then by Mean Value Theorem $\exists c\in[1,1+x]: f(1+x)-f(1)=\alpha xc^{\alpha-1}$. Then split into cases $x>0$ and $-1\leq x \leq 0$. 
+\end{proof1}
+\end{multicols}
+
+%-------------------------------------------------------------------------------
+\vspace{-1ex}\dotfill\vspace{-1ex}
+\begin{multicols}{2}
+\subsection*{FPM Revision\vspace{-1ex}}
+\begin{definition}
+A function $f$ is continuous at $a$ iff $\forall\varepsilon>0:\exists\delta>0$ such that $|x-a|<\delta\implies|f(x)-f(a)|<\varepsilon$. 
+\end{definition}
+
+\begin{theorem}[Extreme Value]
+If $I$ is a closed, bounded interval then any $f:I\to\R$ is bounded and $f$ will attain these upper and lower bounds.
+\end{theorem}
+\begin{proof1}
+Assume this is false so that $|f(x_n)|>n$ for some $n\in\N$, by Bolzano-Weierstrass there is a subsequence $x_{n_k}\to a$, so that $|f(x_{n_k})|>n_k$ will have the same limiting behaviour as $|f(x_n)|$, but then $f(a)\to\infty$ - a contradiction of Bolzano-Weierstrass! So $f$ is bounded.
+\end{proof1}
+
+\begin{theorem}[Intermediate Value]
+Suppose $f:[a,b]\to\R$ is continuous, if $y_0$ lies between $f(a)$ and $f(b)$ then $\exists x_0\in(a,b): f(x_0)=y_0$.
+\end{theorem}
+\begin{proof1}
+WLOG assume $f(a)<y_0<f(b)$. Consider $E:=\{x\in[a,b]\,:\,f(x)<y_0\}$, by the completeness axiom $x_0:=\sup E$ exists, so choose a sequence so that $x_n\to x_0$ then by continuity $f(x_0) = \lim f(x_n) \leq y_0$. For contradiction, assume that $f(x_0)<y_0$ then $0<y_0-f(x_0)$ is continuous on $[a,b)$, so $\exists x_1>x_0$ such that $y_0-f(x_1)>\varepsilon>0$ so that $\sup E<x_1\in E$, a contradiction!
+\end{proof1}
+
+\begin{theorem}[Rolle]
+Suppose that $a<b$. If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$ with $f(a)=f(b)$ then $\exists c\in(a,b): f'(c)=0$.
+\end{theorem}
+\begin{proof1}
+Look at the maximum $\forall x\in[a,b]: f(x)\leq f(c):= M$, and let $\varepsilon>0$ so that $f(c-\varepsilon)-f(c)\leq 0$ and $f(c+\varepsilon)-f(c)\geq0$, then use intermediate value theorem to get $f'(c) \lim_{\varepsilon\to0}\left(\frac{f(c-\varepsilon)-f(c)}{\varepsilon}\right) = 0$.
+\end{proof1}
+
+\begin{theorem}[Mean Value]
+If $f,g$ are continuous on $[a,b]$ and differentiable on $(a,b)$ then $\exists c\in(a,b)$ such that $f(b)-f(a) = f'(c)\big(b-a\big)$ and $g'(c)\big(f(b)-f(a)\big)=f'(c)\big(g(b)-g(a)\big)$.
+\end{theorem}
+\end{multicols}
+
+\vspace{-1ex}\dotfill\vspace{-1ex}
+%%
+%% Maybe add series from the end of chapter 6 if there's space.
+%%
+\begin{multicols}{2}
+\begin{theorem}[2.8]
+Every convergent sequence is bounded.
+\end{theorem}
+\begin{proof1}
+Let $M:=\max\{|x_1|,|x_2|,\dots,|x_N|\}$, then use $n>N\Rightarrow |x_n-a|<1 \Rightarrow |x_n|<1+|a|$.
+\end{proof1}
+
+\begin{theorem}[Squeeze Theorem]
+Suppose $(x_n)_{n\in\N},(y_n)_{n\in\N}$ and $(w_n)_{n\in\N}$ are sequences in $\R$, then if $x_n,y_n\to a$ and $\forall n: x_n\leq w_n\leq y_n$ then $w_n\to a$ also.
+\end{theorem}
+\begin{proof1}
+Just use $a-\varepsilon<x_n\leq w_n\leq y_n<a+\varepsilon$. 
+\end{proof1}
+
+\begin{theorem}[Comparison Test]
+Suppose $(x_n)_{n\in\N}$ and $(y_n)_{n\in\N}$ are convergent with $\forall n: x_n\leq y_n$ then $\lim_{n\to\infty} (x_n) \leq \lim_{n\to\infty} (y_n)$. 
+\end{theorem}
+\begin{proof1}
+Proof by contradiction: assume that $\forall n: x_n\leq y_n$ and $\lim_{n\to\infty} (x_n) > \lim_{n\to\infty} (y_n)$. Let $\varepsilon := \frac{x-y}{2}>0$ and choose $N$ so that $\forall n\geq N:\, |x-x_n|,|y-y_n|<\varepsilon$. Then $x_n>x-\varepsilon = y+\varepsilon > y_n$ so $\exists n: x_n>y_n$, contradiction!
+\end{proof1}
+
+\begin{theorem}[Monotone Convergence]
+If $(x_n)_{n\in\N}$ is increasing and bounded above then it converges.
+\end{theorem}
+\begin{proof1}
+Use approximation property for the supremum $a:=\sup\{x_n\,:\,n\in\N\}$ (which exists by the completeness axiom) to get $\forall\varepsilon>0, n>N:\ a-\varepsilon < x_N \leq a$ then use the squeeze theorem.
+\end{proof1}
+
+\begin{theorem}[Bolzano-Weierstrass]
+Every bounded sequence has a convergent subsequence.
+\end{theorem}
+\begin{proof1}
+Choose $a,b\in\R$ such that $\forall n:x_n\in[a,b]=:I_0$, then divide $I_0$ into two sets $I_0=[a,\frac{b-a}{2}]$. Define $I_1$ as the one of these halves that contain infinitely many $x_n$, and repeat the split so that $|I_n|\to0$, then by the nested interval theorem $\lim_{n\to\infty} I_n = \{x\}$, the limit of a subsequence.
+\end{proof1}
+
+\begin{theorem}[2.36]
+Let $(x_n)_{n\in\N}$ be a sequence of real numbers. Then $x_n\to x$ as $n\to\infty$ if and only if $\limsup{x_n} = \liminf{x_n}=x$.
+\end{theorem}
+\begin{proof1}
+Use that $\inf(x_n)\leq x_n\leq \sup(x_n)$ and squeeze-theorem.
+\end{proof1}
+
+\begin{definition}
+The partial sum of order $n$ of a sequence $(a_n)_{n\in\N}$ is given by $s_n:=\sum_{i=1}^n a_i$. The infinite sum $\sum_{i=1}^\infty a_i$ converges if $(s_n)_{n\in\N}$ does.
+\end{definition}
+
+\begin{definition}
+A series $\sum_{i=0}^\infty a_n$ converges \textit{absolutely} if $\sum_{i=0}^\infty |a_n|$ converges.
+\end{definition}
+
+\begin{theorem}[Convergence Tests]
+Let $(a_n)_{n\in\N}$ be a sequence and $s_n := \sum_{i=0}^n a_i$ and $s_\infty := \sum_{i=0}^\infty a_i$, and also let $r_\infty := \sum_{i=0}^\infty b_i$, then
+\begin{itemize}
+    \item{\textbf{Divergence test:} If $s_\infty$ converges then $a_n\to 0$ as $n\to\infty$.}
+    \item{\textbf{Telescoping:} $\sum_{i=1}^\infty(a_i-a_{i+1}) = a_1 - \lim_{n\to\infty}a_n$.}
+    \item{\textbf{Geometric Series:} $|x|<1 \Longleftrightarrow\sum_{i=N}^\infty x^n = \frac{x^N}{1-x}$.}
+    \item{\textbf{Cauchy Criterion:} $s_\infty$ converges iff $\forall\varepsilon>0:\exists N: m\geq n\geq N \Rightarrow |s_n|<\varepsilon$.}
+    \item{\textbf{Integral Test:} If $f>0$ is decreasing then $\sum_{i=0}^\infty f(k)$ converges iff $\int_1^\infty f(x)\,dx<\infty$.}
+    \item{\textbf{p-test:} $\sum_{i=1}^\infty \frac{1}{i^p}$ converges iff $p>1$.}
+    \item{\textbf{Comparison Test:} If $\forall i: 0\leq a_i\leq b_i$ then $r_\infty$ converges $\Rightarrow s_\infty$ converges, and $s_\infty$ diverges $\Rightarrow r_\infty$ diverges.}
+    \item{\textbf{Limit Comparison Test:} Let $L:=\lim_{n\to\infty}\frac{a_n}{b_n}$ then $L>0\Rightarrow r_\infty$ converges iff $s_\infty$ does. If $L=0$ then $r_\infty$ converges $\Rightarrow s_n$ converges.}
+    \item{\textbf{Root Test:} Let $d:=\limsup_{k\to\infty} |a_k|^{1/k}$. Then $d<1\Rightarrow s_k$ converges \textit{absolutely}, and if $d>1$ then it diverges.}
+    \item{\textbf{Ratio Test:} Let $d:=\lim_{k\to\infty}\left|\frac{a_{k+1}}{a_k}\right|$ then $d<1\Rightarrow s_k$ converges \textit{absolutely}, and if $d>1$ then it diverges.}
+\end{itemize}
+\end{theorem}
+
+
+
+\end{multicols}
+
+\input{pictures/dependency.tex}
+
+\dotfill
+
+\begin{multicols}{2}
+\section*{Probably non-examinable}
+\begin{theorem}[4.32]
+Suppose $I$ is an interval and $f:I\to\R$ is injective and continuous on $I$, then $J:=f(I)$ is an interval on which $f^{-1}$ is monotone, and $f$ is monotone on $I$.
+\end{theorem}
+\begin{proof1}
+Suppose $a,b\in I$ and $c,d\in J$ with $f(a)=c<f(b)=d$, and let $y_0\in(c,d)$, then by Intermediate value theorem (since $f$ is continuous) $\exists x_0\in(a,b): y_0=f(x_0)$. To summarise, $y_0\in(c,d)\implies y_0\in J$ so $J$ is an interval. To prove $f$ is monotone use contradiction; assume $f$ isn't monotone then use intermediate value theorem again to derive that $f(c)<f(a)<f(b)$ or $f(a)<f(b)<f(c) \implies \exists x_1\in(a,b): f(x_1)=f(a)$ or $f(x_1)=f(b)$, a contradiction!
+\end{proof1}
+
+\begin{theorem}[Inverse Function Theorem]
+If $I$ is an interval and $f:I\to\R$ is injective and continuous with $b=f(a)$ and $f'(a)$ exists, then $\frac{d}{dt} f^{-1}(b) = \frac{1}{f'(a)}$. In other words $\frac{dy}{dx} = \frac{1}{dx/dy}$.
+\end{theorem}
+\begin{proof1}
+Theorem 4.32 gives that $f$ is monotone, so we can fix the intervals of $f$ and $f^{-1}$. Then use that $f$ is continuous to swap $f^{-1}$ with differentiation limits:
+    \[
+    \lim_{h\to0}\frac{f^{-1}(b+h)-f^{-1}(b)}{h} = \lim_{x\to a}\frac{x-a}{f(x)-f(a)} = \frac{1}{f'(x)},
+    \]
+where $x:=f^{-1}(b+h)$ and $b = f^{-1}(a)$ by assumption so that $f(x)-f(a)=(b+h)-b=h$.
+\end{proof1}
+
+\begin{definition}
+A series $\sum_{k=0}^\infty b_k$ is a \textit{rearrangement} of $\sum_{k=0}^\infty a_k$ iff there is an injective function so that $b_{f(k)}=a_k$.
+\end{definition}
+\begin{theorem}[6.27]
+If $\sum_{k=0}^\infty a_k$ converges \textit{absolutely} and $\sum_{k=0}^\infty b_k$ is a rearrangement then $\sum_{k=0}^\infty b_k=\sum_{k=0}^\infty a_k$.
+\end{theorem}
+\begin{theorem}[Riemann]
+If $x\in\R$ and $\sum_{k=0}^\infty a_k$ is conditionally (but not absolutely) convergent then there is a rearrangement of $\sum_{k=0}^\infty a_k$ so that $\sum_{k=0}^\infty b_k=x$.
+\end{theorem}
+\end{multicols}

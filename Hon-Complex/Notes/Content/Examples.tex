@@ -1,0 +1,57 @@
+\noindent\dotfill
+\begin{multicols}{2}
+\section*{Sample questions}
+
+For \textbf{infinite series}:
+    \[
+    \int_\Gamma \frac{\cot(\pi z)}{z^2}dz 
+    = \sum_n \Res(f,n) 
+    = \sum_{j=0}^\infty \frac{1}{r^2} = \frac{\pi}{6}.
+    \]
+
+For \textbf{finding series expansions}:
+    \begin{align*}
+    \frac{1}{1-f(z)} &= \sum_{j=0}^\infty f(z)^j \quad \text{for }|f(z)|<1, \\
+    \frac{1}{(1-z)^2} &= \frac{d}{dz}\frac{1}{1-z} \\
+    \frac{1}{z-k} &= \frac{1}{z}\cdot\frac{1}{1-k/z}
+    = \sum_{j=0}^\infty \left(\frac{k}{z}\right)^j.
+    \end{align*}
+
+For \textbf{maps to the unit disc:} The function
+    \[
+    f(z)=\frac{z-1}{z+1},
+    \]
+maps the imaginary axis (equation $|z-1|=|z+1|$) to the unit circle.
+
+On \textbf{any disc}: On $z\in D_r(z_0)$ notice that $z\overline{z}=|z|^2\implies \overline{z}=\frac{r^2}{z}$ and so
+    \[
+    \re(z) = \frac{z+\overline{z}}{2} = \frac{z+r^2/z}{2}.
+    \]
+
+%%%%%%%%%%%%%%%%%%%\noindent\dotfill
+
+\textsc{Workshop 4; Question 6}:  The function $f(z)=(z^2+1)^{1/2}$ has branches given by $\exp(\frac{1}{2}g(z))$ for $g(z)\in\log(z^2+1) = \log(z+i) + \log(z-i)$ a branch og the logarithm. Thus the branch of $f$ holomorhpic on the unit disc $D_1(0)$ is given by:
+    \[
+    f(z) = \exp\left(\frac{1}{2}\left(\Log_{-\pi/2}(z+i) + \Log_{\pi/2}(z-i)\right)\right).
+    \]
+    
+\textsc{Workshop 5; Question 2}:
+    \begin{align*}
+        f_{1}(z) &= \frac{z-i}{z+i}:
+          &&U_1= \{z\in\C\,:\,\im(z)>0\}\to C_1(0), \\
+        f_{2}(z) &= \frac{\exp(\pi z)-i}{\exp(\pi z)+i}:
+          &&U_2 = \{z\in\C\,:\,0<\im(z)<1\}\to C_1(0),  \\
+        f_{3}(z) &= \frac{z^2-i}{z^2+i}:
+          &&U_3 = \{z\in\C\,:\,\im(z),\re(z)>0\}\to C_1(0),  \\
+        f_{4}(z) &= \frac{z^2-1}{z^2+1}:
+          &&U_4 = \left\{z\in\C\,:\,\Arg(z)\in\left(-\frac{\pi}{4},\frac{\pi}{4}\right)\right\}\to C_1(0).\\
+    \end{align*}
+    
+\textsc{Workshop 6; Question 3:}
+    \[
+    \R\ni\left| \int_\Gamma f(z) dz\right| \neq \int_\Gamma |f(z)|dz \in\C
+    \]
+
+% Rouche's theorem example
+% Real integral example i.e. WORKSHOP 11;QUESTION 3,4
+\end{multicols}

@@ -1,0 +1,89 @@
+\newpage%\noindent\dotfill
+\begin{multicols}{2}
+\section*{Chapter Five - Residue calculus}
+
+\begin{definition}
+The \textbf{residue} of a function $f$ at isolated singularity $z_0$ is $\Res(f,z_0)=a_{-1}$, the coefficient of $\frac{1}{z-z_0}$ in the Laurent series expansion of $f$.
+\end{definition}
+
+\begin{theorem}[5.1.4]
+Let $f$ be holomorphic on $D_R'(z_0)$ with removable singularity $z_0$, then $\Res(f,z_0)=0$.
+\end{theorem}
+
+\begin{theorem}[5.1.5]
+Let $f$ be holomorphic on $D_R'(z_0)$ where $z_0$ is a pole of order $m$, then
+    \[
+    \Res(f,z_0) = 
+    \lim_{z\to z_0} \frac{1}{(m-1)!}\frac{d^{m-1}}{dz^{m-1}}((z-z_0)^mf(z)).
+    \]
+\end{theorem}
+
+\begin{theorem}[5.1.7]
+Let $g,h$ be holomorphic on $D_R'(z_0)$ where $z_0$ is a simple zero of $h$ and $g(z_0)\neq0$, then
+    \[
+    \Res(f,z_0) = \frac{g(z_0)}{h'(z_0)}.
+    \]
+\end{theorem}
+
+\begin{theorem}
+\textbf{Cauchy Residue Theorem:} Let $\Gamma$ be a loop with $f$ holomorphic on $\Int(\Gamma)\setminus\{z_1,\dots,z_k\}$ for isolated singularities $z_1,\dots,z_k$. Then
+    \[
+    \int_\gamma f(z)dz = 2\pi i\sum_{j=1}^k \Res(f,z_j).
+    \]
+\end{theorem}
+
+\begin{definition}
+A function $f$ is \textbf{meromorphic} on a domain $D$ if $\forall z\in D, f$ has a pole of finite order or is holomorphic.
+\end{definition}
+
+
+\begin{theorem}
+\textbf{The Argument Principle:} Let $\Gamma$ be a loop in $\C$ and $f$ meremorphic on $\Int(\Gamma)$ and holomorphic on $\Gamma$, then
+    \[
+    \frac{1}{2\pi i}\int_\Gamma\frac{f'(z)}{f(z)}dz = N_0(f) - N_\infty(f),
+    \]
+where $N_0(f)=\sum_{j=1}^l \mathrm{ord}(w_j)$ is the sum of the orders of the zeros of $f$ and $N_\infty(f)=\sum_{j=1}^k \mathrm{ord}(z_j)$ is the sum of the orders of the poles of $f$ (the number of poles in $\Int(\Gamma)$, counted with multiplicity).
+\end{theorem}
+
+\begin{theorem}
+\textbf{Rouch\'e's Theorem:} Let $\Gamma$ be a loop and $f,g$ be holomorphic inside and on $\Gamma$ with
+    \[
+    \forall z\in\Gamma: |f(z)-g(z)|<|f(z)|
+    \]
+then $N_0(f)=N_0(g)$.
+\end{theorem}
+
+\begin{theorem}
+\textbf{Open-Mapping theorem:} Let $D\subseteq\C$ be a domain and $f$ is non-constant and holomorphic on $D$, then the image $f(D)$ is open.
+\end{theorem}
+
+\begin{theorem}
+\textbf{Maximum Modulus:} Let $D\subseteq\C$ be a domain and $f$ be holomorphic and non-constant, then $|f(z)|$ doesn't attain its maximum on $D$.
+\end{theorem}
+
+\begin{theorem}[5.2.18]
+Suppose $f$ is holomorphic on domain $D$, if any of $\re(f), \im(f), |f|,$ or $\Arg(f)$ are constant functions then $f$ is also constant.
+\end{theorem}
+
+\begin{theorem}
+\textbf{Jordan Lemma:} Let $P/Q$ be rational with $\deg(Q)\geq\deg(P)+1$ then
+    \[
+    \lim_{\rho\to\infty}\int_{C}\exp(iaz)\frac{P(z)}{Q(z)}dz=0
+    \quad\text{where } C=
+    \begin{cases}
+    C_\rho^+ &\text{ for }a>0\\
+    C_\rho^- &\text{ for }a<0
+    \end{cases}
+    \]
+\end{theorem}
+
+\begin{theorem}[5.5.3]
+Let $D$ be a domain with $f$ meromorphic on $D$ with simple pole $c\in D$, if $\gamma:[\theta_0,\theta_1]\subseteq[0,2\pi]\to\C, \theta\mapsto c + r\exp(i\theta)$ parametrizes the arc $S_r$  then
+    \[
+    \lim_{r\to0^+}\int_{S_r}f(z)dz = i(\theta_1-\theta_0)\Res(f,c).
+    \]
+\end{theorem}
+
+
+
+\end{multicols}

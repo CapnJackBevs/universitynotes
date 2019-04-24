@@ -1,0 +1,48 @@
+\noindent\dotfill
+\begin{multicols}{2}
+\section*{Chapter Two - M\"obius transformations}
+%% CROSS-RATIO::
+% The cross-ratio is preserved under a "change of perspective" - see the following numberphile video:
+% https://www.youtube.com/watch?v=ffvojZONF_A&fbclid=IwAR35f-7Zpb80I_HsaKkFHS8YdimM_5W9ecxzulnWe94NY3Y5YFXiD7fWxmU
+
+\begin{theorem}
+Let $f:U\to\C$ be holomorphic with $U\subseteq\C$ open, then $f$ is \textbf{conformal} (preserves angles) at $z_0\in U$ iff $f'(z_0)\neq 0$.
+\end{theorem}
+
+\begin{definition}
+A \textbf{M\"obius transformation} is any function of the form $f(z)=\frac{ax+b}{cz+d}$ where $ad-bd\neq0$. This forms a group $\mathcal{M}\cong \text{SL}(2;\C)$.
+\end{definition}
+
+\begin{definition}
+The \textbf{Riemann sphere} is $S^2:=\{(X,Y,Z)\in\R^3:X^2+Y^2+Z^2=1\}$. The \textbf{extended complex plane} is $\tC:=\C\cup\{\infty\}$ where $\frac1\infty=0$ and $z\cdot\infty=\infty\cdot z = \infty=\frac10$ for any $z\in\C$.
+\end{definition}
+
+\begin{theorem}
+M\"obius transformations are holomorphic and conformal on $\tC$.
+\end{theorem}
+
+\begin{theorem}
+Let $z=x+iy$. \textbf{Stereographic projection} is the pair of inverse bijections $(\varphi:S^2\to\tC,\psi:\tC\to S^2)$ given by:
+    \[
+    \varphi(X,Y,Z) := \frac{X+iY}{1-Z}
+    \quad\text{ and }\quad
+    \psi(z):=\left(\frac{2x}{|z|^2+1},\frac{2y}{|z|^2+1},\frac{|z|^2-1}{|z|^2+1}\right)
+    \]
+\end{theorem}
+
+\begin{theorem}[2.4.3]
+A M\"obius transformation maps \textbf{circlines} (circles and lines) to circlines.
+\end{theorem}
+
+\begin{theorem}
+The \textbf{cross-ratio} is the \textit{unique} M\"obius transformation which sends $(z_2,z_3,z_4)\mapsto(1,0,\infty)$. The image of $z$ under this is given by
+    \[
+    [z,z_2,z_3,z_4] = \frac{z-z_3}{z-z_4}\frac{z_2-z_4}{z_2-z_3}.
+    \]
+\end{theorem}
+
+\begin{theorem}[2.5.7]
+Let $M$ be a M\"obius transformation, then $[Mz_1,Mz_2,Mz_3,Mz_4]=[z_1,z_2,z_3,z_4]$.
+\end{theorem}
+
+\end{multicols}

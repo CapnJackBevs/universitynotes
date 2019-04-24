@@ -1,0 +1,144 @@
+\newpage%\noindent\dotfill
+\begin{multicols}{2}
+\section*{Chapter Four - Series expansions}
+
+\begin{theorem}
+Convergence tests
+\begin{itemize}
+    \item{\textbf{Comparison test:} Suppose $\forall n: |z_n|\leq M_n$ with $\sum_{j=0}^\infty M_j$ convergent, then $\sum_{j=0}^\infty z_j$ converges.}
+    \item{The series $\sum_{j=0}^\infty c^j$ converges iff $|c|<1$.}
+    \item{\textbf{Ratio Test:} Let $L:=\lim_{n\to\infty}\left|frac{z_{n+1}}{z_n}\right|$, then $z_n$ converges if $L<1$ and diverges if $L>1$.}
+    \item{\textbf{Weierstrass M:} If $f_n$ is a sequence of functions $\forall j:|f_j|\leq M_j$ and $\sum_{j=0}^\infty M_j$ converges then $f_n$ converges uniformly.}
+\end{itemize}
+\end{theorem}
+
+\begin{definition}
+Let $(f_n)_{n\in\N}$ be a sequence of functions, $f_n$ \textbf{converges pointwise} to $f$ if $\forall\varepsilon>0:\exists N\in\N:\forall n\geq N: |f_n(z)-f(z)|<\varepsilon$.
+\end{definition}
+
+\begin{definition}
+Let $(f_n)_{n\in\N}$ be a sequence of functions, $f_n$ \textbf{converges uniformly} to $f$ if $\forall\varepsilon>0:\exists N\in\N:\forall n\geq N:\forall z: |f_n(z)-f(z)|<\varepsilon$.
+\end{definition}
+
+\begin{theorem}[4.1.21,4.1.22]
+If $f_n$ converges uniformly we may commute limits with integrals (4.1.21) and integrals with sums (4.1.22).
+\end{theorem}
+
+\begin{theorem}[4.1.23]
+If every $f_n$ is holomorphic and $f_n\to f$ uniformly then $f$ is holomorphic.
+\end{theorem}
+
+\begin{theorem}[4.2.2]
+Let $P = \sum_{j=0}^\infty a_j(z-z_0)^j$ be a power-series then $\exists R\in[0,\infty]:$ (called the \textbf{radius of convregence}) such that:
+\begin{itemize}
+    \item{$P$ converges on $D_R(z_0)$,}
+    \item{$P$ converges uniformly on $D_r(z_0)$ for any $r<R$,}
+    \item{$P$ diverges on $\C\setminus\overline{D}_R(z_0)$.}
+\end{itemize}
+\end{theorem}
+
+\begin{theorem}[4.2.4]
+If $r:=\lim_{j\to\infty}\left|\frac{a_j}{a_{j+1}}\right|$ exists then it's the radius of convergence of $\sum_{j=0}^\infty a_j(z-z_0)^j$.
+\end{theorem}
+
+\begin{theorem}[4.2.6]
+The power series $\sum_{j=0}^\infty a_j(z-z_0)^j$ with radius of convergence $R$ is holomorphic on $D_R(z_0)$.
+\end{theorem}
+
+\begin{definition}
+The \textbf{Taylor seires} of $f$, for holomorphic $f$, is
+    \[
+    \sum_{j=0}^\infty \frac{f^{(j)}(z_0)}{j!}(z-z_0)^j.
+    \]
+\end{definition}
+
+\begin{theorem}[4.3.2]
+If $f$ is holomorphic on $D_R(z_0)$ then it admits a Taylor $\sum_{j=0}^\infty a_j(z-z_0)^j$ series which converges uniformly with radius of convergence $R$.
+\end{theorem}
+
+\begin{definition}
+A function $f$ is \textbf{analytic} if it admits a convergent power-series.
+\end{definition}
+
+\begin{theorem}[4.3.5]
+Every holomorphic function is analytic.
+\end{theorem}
+
+\begin{theorem}[4.3.9]
+The Taylor series of $f'(z)$ is the term-by-term derivative of the Taylor series of $f(z)$ (since Taylor series converge uniformly). 
+\end{theorem}
+
+\begin{theorem}[4.3.12]
+Taylor series are \textit{unique}, specifically; the Taylor series of a function is equal to any valid power-series.
+\end{theorem}
+
+\begin{definition}
+The \textbf{Laurent series expansion} of a function $f$ is $\sum_{j=-\infty}^\infty a_j(z-z_0)^j = \sum_{j=0}^\infty a_j(z-z_0)^j + \sum_{j=1}^\infty a_{-j}(z-z_0)^{-j}$.
+\end{definition}
+
+\begin{definition}
+The \textbf{open annulus of radii $r$ and $R$} is $A_{r,R}(z_0)=D_R(z_0)\setminus D_r(z_0)$. 
+\end{definition}
+
+\begin{theorem}
+The coefficients of a Laurent series for a holomorphic function $f$ are given by
+    \[
+    a_j = \frac{1}{2\pi i}\int_\Gamma \frac{f(z)}{(z-z_0)^{j+1}}dz,
+    \]
+for $\Gamma\in A_{r,R}(z_0)$.
+\end{theorem}
+
+\begin{theorem}[4.4.7]
+The Laurent series expansion of holomorphic $f$ is unique.
+\end{theorem}
+
+\begin{definition}
+We say $z_0$ is a \textbf{singularity} of $f$ if $f$ isn't holomorphic at $z_0$. It is \textbf{isolated} if $\exists R>0: f$ is holomorphic on $D'(z_0)$, and of \textbf{order} $m$ if $f(z_0)=\dots=f^{(m-1)}(z_0)=0\neq f^{(m)}(z_0)$.
+\end{definition}
+
+\begin{theorem}[4.5.5]
+If $z_n\to z_0$ and $\forall n: z_n\in D$ which is a neighbourhood domain of $z_0$ and $f(z_0)=0$ then $f(z)=0$ for all $z\in D$. 
+\end{theorem}
+
+\begin{definition}
+Let $z_0$ be a singularity of a function $f$, then
+    \begin{itemize}
+        \item{$z_0$ is \textbf{removable} if $\forall j<0: a_j=0$,}
+        \item{of \textbf{order $m$} if $\forall j<-m:a_j=0$ but $a_j\neq0$,}
+        \item{\textbf{essential} if there are infinitely many $a_j\neq0$ with $j<0$.}
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[4.5.8]
+Let $f=\sum_{j=0}^\infty a_j(z-z_0)^j$ have removable singularity $z_0$ then re-defining $f(z_0)=a_0$ makes $f$ holomorphic at $z_0$. 
+\end{theorem}
+
+\begin{theorem}[4.5.11]
+Let $f,g$ be holomorphic at $z_0$ with $z_0$ a zero of order $m$ of $g$ then
+  \begin{itemize}
+      \item{if $z_0$ isn't a zero of $f$ then $f/g$ has a pole of order $m$ at $z_0$,}
+      \item{if $z_0$ is a zero of order $k$ of $f$ then $f/g$ has a pole of order $m-k$ at $z_0$ if $m>k$ and removable singularity otherwise.}
+  \end{itemize}
+\end{theorem}
+
+\begin{definition}
+We say $F:\tilde{D}\to\C$ is an \textbf{analytic continuation} of $f:D\to\C$ with $\tilde{D}\subseteq D\subseteq\C$ if $F(z)=f(z)$ for $z\in D$ and $F$ is holomorphic.
+\end{definition}
+
+\begin{theorem}[4.6.4]
+\textbf{Identity theorem:} Let $D\subseteq\C$ be a domain with $f$ holomorphic on $D$ and $f(z)=0$ for all $z\in D_R(z_0)\subseteq D$ then $f(z)=0$ for all $z\in D$.
+\end{theorem}
+
+\begin{theorem}[4.6.5]
+Let $D\subseteq\C$ be a domain with $f,g:D\to\C$ holomorphic with $\forall z\in D_R(z_0):f(z)=g(z)$ then $f(z)=g(z)$ for all $z\in D$.
+\end{theorem}
+
+\begin{theorem}[4.6.7]
+Let $z_n\to z_0$ and $\forall n: f(z_n)=0$ with $f:D\to\C$ holomorphic, then $\forall z\in D:f(z)=0$.
+\end{theorem}
+
+\begin{theorem}[4.5.8]
+Let $D\subseteq\C$ be a domain with $f,g:D\to\C$ holomorphic with and $z_n\to z_0, f(z_n)=g(z_n)$ then $\forall z\in D: f(z)=g(z)$ (use this to prove that $\sin^2(z) + \cos^2(z)=1$ holds for complex $\sin,\cos$ since $f=g$ on the real axis).
+\end{theorem}
+
+\end{multicols}

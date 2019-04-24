@@ -1,0 +1,26 @@
+\dotfill
+\begin{multicols}{2}
+\subsection*{Continuity: Point-wise vs Uniform}
+\scriptsize{``Uniform continuity means $f_n(x)\to f(x)$ at roughly the same rate, for each $x$"}\small
+\begin{definition}
+A function $f:E\to\R$ is uniformly continuous if $\forall\varepsilon>0: \exists\delta>0:$ such that $|x-a|<\delta$ and $a,x\in E$ $\implies|f(x)-f(a)|<\varepsilon$.
+\end{definition}
+
+\begin{theorem}[3.38]
+If $(x_n)_{n\in\N}$ is Cauchy and $f$ is uniformly continuous then $(f(n))_{n\in\N}$ is Cauchy.
+\end{theorem}
+\begin{proof1}
+Cauchy $\Rightarrow\forall\delta>0:\exists N:\forall m,n>N$ we get $|x_m-x_n|<\delta$ then using uniform continuity $|f(x_m)-f(x_n)|<\varepsilon$. 
+\end{proof1}
+
+\begin{theorem}[3.39]
+If $f$ is continuous on a closed, bounded interval $I$ then $f$ is uniformly continuous on $I$.
+\end{theorem}
+\begin{proof1}
+Contradiction proof: Let $\varepsilon>0$ and $\delta=1/n$ and $|x_n-y_n|<1/n$ but also $|f(x_n)-f(y_n)|\geq\varepsilon$. By Bolzano-Weierstrass both $x_n$ and $y_n$ have convergent subsequences $x_{n_k}\to x$ and $y_{n_j}\to y$ so that $|f(x)-f(y)|>\varepsilon$ ie $f(x)\neq f(y)$, but $|x_n-y_n|<1/n\to 0$ so $x=y\Rightarrow f(x)=f(y)$, contradiction!  
+\end{proof1}
+
+\begin{theorem}
+Suppose $f:(a,b)\to\R$ is continuous. Then $f$ is uniformly continuous iff it can be extended continuously to $[a,b]$.
+\end{theorem}
+\end{multicols}

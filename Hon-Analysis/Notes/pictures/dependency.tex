@@ -1,0 +1,33 @@
+\section*{Dependency tree of theorems}
+\begin{center}
+\begin{forest}
+  [
+  [Nested Interval Theorem, no edge, draw
+    [Bolzano-Weierstrass,draw
+      [``$f$ is cts on bounded interval\\ $\Rightarrow$ $f$ is uniformly cts'', align=center,base=top,draw]
+      [$\R$ is complete,draw]
+      [Extreme Value \\Theorem, align=center,base=top,draw,name=EVT
+        [10.64, no edge, draw, name=sixfour]
+        [10.61, no edge, draw, name=sixone]
+        ]
+      [Intermediate\\ Value Theorem, align=center,base=top,draw,name=IVT
+        [Rolle's Theorem,draw
+          [Mean Value\\ Theorem, align=center,base=top,draw]
+        ]
+        [Inverse Function\\ Theorem, align=center,base=top,draw]
+      ]
+    ]
+   ]
+   [Approximation Property,draw, no edge, name=AP]
+   [Monotone Convergence Theorem, draw, name=MCT, no edge
+     [Completeness Axiom, draw, name=CA,no edge]
+   ]
+  ]
+  \draw[->,dotted,thick] (CA) to (IVT);
+  \draw[->,dotted,thick] (CA) to (MCT);
+  \draw[->,thick] (AP) to (MCT);
+  \draw[->,dotted,thick] (AP) to (EVT);
+  \draw[->,dotted,thick] (sixone) to (EVT);
+  \draw[->,dotted,thick] (sixfour) to (EVT);
+\end{forest}
+\end{center}

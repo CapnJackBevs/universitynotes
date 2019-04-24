@@ -1,0 +1,115 @@
+\begin{multicols}{2}
+\section*{Chapter Four - Determinants and eigenvalues}
+
+\begin{definition}
+The \textbf{permutation group} $\mathfrak{S}_n$ is the group of all bijections $\{1,\dots,n\}\to\{1,\dots,n\}$.
+\end{definition}
+
+\begin{definition}
+An \textbf{inversion} of a permutation $\sigma\in\mathfrak{S}_n$ is a pair $(i,j)$ with $1\leq i<j\leq n: \sigma(i)>\sigma(j)$. The \textbf{length} of $\sigma$ is
+    \[
+    l(\sigma) := |\{(i,j) : 1\leq i<j\leq n, \sigma(i)>\sigma(j)\}|,
+    \]
+and the \textbf{sign of $\sigma$} is the group-homomorphism $\mathrm{sgn}(\sigma)=(-1)^{l(\sigma)}$ whose kernel is the \textbf{Alternating group} $A_n$. If $\mathrm{sgn}(\sigma)=+1$ then $\sigma$ is an \textbf{even} permutation.
+\end{definition}
+
+\begin{definition}
+Let $R$ be a commutative ring and $n\in\mathbb{N}$. The \textbf{determinant} $\det:\Mat(n\times n;R)\to R$ is given by
+    \[
+    \det([a_{ij}]) = 
+    \sum_{\sigma\in\mathfrak{S}_n}
+    \mathrm{sgn}(\sigma)a_{1\sigma(1)}\dots a_{n\sigma(n)}.
+    \]
+\end{definition}
+
+\begin{definition}
+Let $U,V,W$ be $F$-vector spaces. A \textbf{bilinear form} on $U\times V$ is a mapping $H:U\times V\to W$ such that $\forall \u_1,\u_2\in U,\ \v_1,\v_2\in V,\  \lambda\in F:$
+    \begin{itemize}
+        \item $H(\u_1+\u_2,\v_1) = H(\u_1,\v_1) + H(\u_2,\v_1)$,
+        \item $H(\lambda\u_1,\v_1) = \lambda H(\u_1,\v_1)$,
+        \item $H(\u_1,\v_1+\v_2) = H(\u_1,\v_1) + H(\u_1,\v_2)$,
+        \item $H(\u_1,\lambda\v_1) = \lambda H(\u_1,\v_1)$.
+    \end{itemize}
+A bilinear form is \textbf{symmetric} if $U=V:\forall\u,\v\in U:H(\u,\v)=H(\v,\u)$ and is \textbf{anti-symmetric} if $\forall\u\in U:H(\u,\u)=0 \Leftrightarrow H(\u,\v)=-H(\v,\u)$.
+\end{definition}
+
+\begin{definition}
+A mapping $H:V_1\times\dots\times V_n\to W$ is a \textbf{multilinear form} if it's linear in each entry. It's \textbf{alternating} if $H(\dots,\u,\dots,\u,\dots)=0$.
+\end{definition}
+
+\begin{theorem}[4.3.6]
+Let $F$ be a field. The mapping $\det:\Mat(n;F)\to F$ which is an alternating, multilinear form on $[a_{1i}|\dots|a_{ni}]$ with $\det(\mathbb{I})=1_F$ is \textit{unique}.
+\end{theorem}
+
+\begin{theorem}[4.4.1,4.4.4]
+    \[
+    \det(AB)=\det(A)\det(B)
+    \quad\text{and}\quad
+    \det(A^T)=\det(A).
+    \]
+\end{theorem}
+
+\begin{definition}
+Let $A\in\Mat(n;R)$ where $R$ is a commutative ring. The \textbf{$(i,j)$-cofactor of $A$} is
+    \[
+    C_{ij} = (-1)^{i+j}\det(A\langle i,j\rangle),
+    \]
+where $A\langle i,j\rangle$ is the matrix $A$ with the $i^{th}$ row and $j^{th}$ column removed.
+\end{definition}
+
+\begin{theorem}[4.4.7]
+    \[
+    \det(A) = \sum_{j=1}^n a_{ij}C_{ij}.
+    \]
+\end{theorem}
+
+\begin{theorem}[4.4.9]
+The \textbf{adjugate matrix} is $\adj(A)_{ij}=C_{ji}$ for cofactor matrix $C$ of $A$. Then \textbf{Cramer's Rule} is that
+    \[
+    A\cdot\adj(A) = \det(A)\mathbb{I}_n.
+    \]
+\end{theorem}
+
+\begin{theorem}[4.4.11]
+A matrix $A$ is \textbf{invertible} iff $\det(A)\neq0$.
+\end{theorem}
+
+\begin{definition}
+If $V$ is an $F$-vector space then $\lambda\in V$ is an \textbf{eigenvalue} of $f\in\End(V)$ if $\exists\v\in V: f(\v)=\lambda\v$.
+\end{definition}
+
+\begin{theorem}[4.5.4]
+If $f\in\End(V)$ for $V$ over $F$ which is algebraically closed, then $f$ has eigenvalues.
+\end{theorem}
+
+\begin{definition}
+Let $R$ be a commutative ring, the \textbf{characteristic polynomial} of $f\in\End(V)$ is
+    \[
+    \chi_f(x) = \det([f]-x\mathbb{I}).
+    \]
+\end{definition}
+
+\begin{theorem}[4.5.1]
+The roots of the characteristic polynomial of $f\in\End(V)$ are exactly the eigenvalues of $f$.
+\end{theorem}
+
+\begin{theorem}[4.6.1]
+Let $f\in\End(V)$ then $V$ has an ordered basis $\mathcal{B}=\{\v_1,\dots\v_n\}$ with
+    \begin{align*}
+        f(\v_1) &= a_{11}\v_1, \\
+        f(\v_1) &= a_{12}\v_1 + a_{22}\v_2, \\
+        &\vdots\\
+        f(\v_1) &= a_{1n}\v_1 + a_{2n}\v_2 +\dots+a_{nn}\v_n \\
+    \end{align*}
+if and only if $\chi_f(x)$ decomposes into linear factors. We say $f$ is \textbf{triangularisable}.
+\end{theorem}
+
+\begin{definition}
+A mapping $f\in\End(V)$ is \textbf{diagonalisable} if there exists a basis of $V$ consisting of eigenvectors of $f$.
+\end{definition}
+
+\begin{theorem}[4.6.8]
+If $f\in\End(V)$ has $\dim(V)$ distinct eigenvalues then the corresponding eigenvectors are linearly independent.
+\end{theorem}
+
+\end{multicols}

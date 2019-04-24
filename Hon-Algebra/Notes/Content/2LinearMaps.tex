@@ -1,0 +1,62 @@
+\noindent\dotfill
+\begin{multicols}{2}
+
+\section*{Chapter Two - Linear mappings}
+\begin{theorem}[2.1.1]
+Let $F$ be a field and $m,n\in\N$ then there is a bijection $\Hom_F(F^m,F^n) \to \Mat(m\times n;F):f\to[f]$ associating a matrix to every linear mapping.
+\end{theorem}
+
+\begin{definition}
+The \textbf{matrix product} is defined for $A\in\Mat(m\times l;F),\,B\in\Mat(l\times n)$ as
+    \[
+    (AB)_{ik} = \sum_{j=1}^l A_{ij}B_{jk}.
+    \]
+\end{definition}
+
+\begin{theorem}
+The composition of linear maps is the product of their matricies; $[f\circ g]=[f][g]$. 
+\end{theorem}
+
+\begin{definition}
+A matrix $M\in\Mat(n\times n;F)$ is \textbf{invertible} if there exist  matricies $A,B\in\Mat(n\times n;F)$ with $AM=MB=\mathbb{I}$.
+\end{definition}
+
+\begin{theorem}
+The set of invertible matricies form a \textbf{group} $GL(n;F):=\Mat(n;F)^\times$.
+\end{theorem}
+
+\begin{definition}
+A square matrix $M\in\Mat(n;F)$ is \textbf{elementary} if it differs from the identity by at most one entry.
+\end{definition}
+
+\begin{theorem}[2.2.3]
+Every square matrix can be written as a product of elementary matricies.
+\end{theorem}
+
+\begin{definition}
+A matrix is in \textbf{Smith-normal form} if it has either a one or zero on the diagonal entries and zeros everywhere else. (2.2.5) every matrix $M$ has invertible $P,Q$ such that $PMQ$ is in Smith-normal form.
+\end{definition}
+
+\begin{definition}
+The \textbf{column rank} (resp. \textbf{row rank}) of a matrix $M$ is the dimension of the span of the coloumns (resp rows) of $A$.
+\end{definition}
+
+\begin{theorem}[2.2.7]
+For any matrix, the column and row ranks are equal.
+\end{theorem}
+
+\begin{definition}
+Let $F$ be a field with $V,W$ vector-spaces over $F$ with ordered bases $\mathcal{A}=(\v_1,\dots,\v_m)$ and $\mathcal{B}=(\u_1,\dots,\u_n)$ respectively. Then the \textbf{representing matrix} $_\mathcal{B}[f]_\mathcal{A}=[a_{ij}]$ with
+    \[
+    a_{ij} = f(\v_j) := a_{1j}\u_1 + \dots + a_{nj}\u_n.
+    \]
+\end{definition}
+
+\begin{theorem}[2.3.4]
+Let $V,W$ be vector-spaces over $F$ with bases $\mathcal{A},\mathcal{B}$ respectively and $f\in\Hom(V,W)$. Then $_\mathcal{B}[f(\v)]=\,_\mathcal{B}[f]_\mathcal{A} \circ\, _\mathcal{A}[\v]$.
+\end{theorem}
+
+\begin{theorem}[2.4.4]
+Let $f\in\Hom(V,V)$ be an endomorphism and $\mathcal{A},\mathcal{A}'$ be bases of $V$. Then the \textbf{change of basis} formula is $_{\mathcal{A}'}[f]_{\mathcal{A}'} = \,_\mathcal{A}[id_V]^{-1}_{\mathcal{A}'}\,_\mathcal{A}[f]_\mathcal{A}\,_\mathcal{A}[id_V]_{\mathcal{A}'}$.
+\end{theorem}
+\end{multicols}
