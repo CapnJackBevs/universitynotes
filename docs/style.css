@@ -35,6 +35,12 @@ div.copyright {
 	padding: 2% 2% 2% 2%;
 }
 
+div.thm {
+	width: 75%;
+	text-align: center;
+	padding: 1% 2% 0% 2%;
+}
+
 div.prof {
 	margin: 5% 2% -40% 75%;
 	float: right;
