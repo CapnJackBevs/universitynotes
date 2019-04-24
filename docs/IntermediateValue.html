@@ -25,9 +25,8 @@ Intermediate Value Theorem
 The Intermediate Value Theorem (or "IVT") is probably one of the most important theorems in any first course in real analysis. Essentially the theorem tells us that the image of a continuous funtion \(f\) will hit every value in some interval, allowing us the intuition of a continuous function being one which you could draw "without taking your pen off the paper". 
 
 Formally the theorem is as follows:
-<div width=80%>
-  <h4>Theorem:</h4>
-  Let \([a,b]\subseteq\mathbb{R}\) be an interval and \(f:\I\to\mathbb{R}\) be continuous, then if \(u\) is a number between \(f(a)\) and \(f(b)\) then \(\exists c\in I: f(c) = u\).
+<div width=50%>
+<b>Theorem:</b> Let \(I\subseteq\mathbb{R}\) be a closed interval and \(f:I\to\mathbb{R}\) be continuous, then if \(u\) is a number between \(f(a)\) and \(f(b)\) then \(\exists c\in I: f(c) = u\).
 </div>
 
 As an example, say we want to know that there is a number \(x\) satisfying \(x^2=2\). As a naive attempt to see this we could use a proof by contradiction, but the intermediate value theorem tells us immediately that this is true; the function \(f(x)=\sqrt{x}\) is continuous on the closed interval \([0,4]\) and so any element \(u\in f([0,4])=[0,2]\) exists, and as \(0\leq\sqrt{2}\leq2\) we can conclude that there such a number exists. In fact this method is a lot more powerful than the naive attempt because it tells us that <i>\ny</i> polynomial which crosses the \(x\)-axis must have a root which is a real number.
